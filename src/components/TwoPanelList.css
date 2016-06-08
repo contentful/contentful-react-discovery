@@ -1,44 +1,6 @@
 .two-panel-list {
   display: flex;
 }
-
-.list {
-  width: 200px;
-  margin-right: 50px;
-}
-
-.list-container {
-  margin-top: 10px;
-  height: 450px;
-  overflow: auto;
-}
-
-.list ul {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 10px;
-}
-
-.list li {
-  padding: 7px 5px;
-  margin: 0;
-  list-style: none;
-  border-left: 2px solid #EEF2F4;
-}
-.list li:hover {
-  border-left: 2px solid #4A90E2;
-}
-
-.list a {
-  border-bottom: none;
-  color: #8091A5;
-  font-size: 15px;
-}
-
-.list-nav-view {
-  margin-bottom: 10px;
-}
-
 .list-item-contents {
   width: 750px;
   min-height: 300px;

@@ -1,0 +1,40 @@
+.list {
+  width: 200px;
+  margin-right: 50px;
+  height: 100%;
+  border: 2px solid #C4D1D7;
+}
+
+.list-container {
+  margin-top: 10px;
+  height: 450px;
+  overflow: auto;
+  padding-right: 5px;
+}
+
+.list ul {
+  padding: 0;
+  margin: 0;
+}
+.list h3 {
+  background-color: #DEE4E9;
+  padding: 15px;
+  color: #2A3038;
+  border-bottom: 2px solid #C4D1D7;
+}
+
+.list li {
+  padding: 7px 5px;
+  margin: 0;
+  list-style: none;
+}
+.list li:hover {
+  background-color: #DEE4E9;
+  cursor: pointer;
+}
+
+.list a {
+  border-bottom: none;
+  color: #2C333B;
+  font-size: 15px;
+}

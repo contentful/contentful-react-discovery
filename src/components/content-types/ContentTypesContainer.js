@@ -30,9 +30,7 @@ export default createClass({
       const listTitle = <h3>Content Types</h3>
       const placeholder = <Placeholder content='Please select your Content Type.' />
       return <TwoPanelList
-        items={this.state.contentTypes.items}
-        ListView={ContentTypeListItem}
-        TitleView={listTitle}
+        items={[{items: this.state.contentTypes.items, TitleView: listTitle, ListView: ContentTypeListItem}]}
         ContentView={placeholder}
         location={this.props.location}
         />

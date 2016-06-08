@@ -1,23 +1,18 @@
 import React, {PropTypes} from 'react'
 import CSSModules from 'react-css-modules'
 import styles from './TwoPanelList.css'
+import List from './List'
 
-function TwoPanelList ({items, ListView, NavView, TitleView, ContentView, ListActionView, location}) {
-  const list = items.map((item) => <ListView key={item.sys.id} item={item} location={location}/>)
-  const listContainerStyle = {
-    height: (window.innerHeight - 200) + 'px'
-  }
-
+function TwoPanelList ({items, ContentView, location}) {
+  const lists = []
+  console.log(items)
+  items.forEach((topItem, index) => {
+    const list = topItem.items.map((innerItem) => <topItem.ListView key={innerItem.sys.id} item={innerItem} location={location}/>)
+    lists.push(<List key={index} TitleView={topItem.TitleView} list={list} ListActionView={topItem.ListActionView}/>)
+  })
   return (
     <div styleName='two-panel-list'>
-      <div styleName='list'>
-        <div styleName='list-nav-view'>{NavView}</div>
-        {TitleView}
-        <div styleName='list-container' style={listContainerStyle}>
-          <ul>{list}</ul>
-          {ListActionView}
-        </div>
-      </div>
+      {lists}
       <div styleName='list-item-contents'>{ContentView}</div>
     </div>
   )
@@ -25,10 +20,8 @@ function TwoPanelList ({items, ListView, NavView, TitleView, ContentView, ListAc
 
 TwoPanelList.propTypes = {
   items: PropTypes.array.isRequired,
-  ListView: PropTypes.func.isRequired,
-  TitleView: PropTypes.element,
-  NavView: PropTypes.element,
-  ContentView: PropTypes.element
+  ContentView: PropTypes.element,
+  location: PropTypes.object.isRequired
 }
 
 export default CSSModules(TwoPanelList, styles)

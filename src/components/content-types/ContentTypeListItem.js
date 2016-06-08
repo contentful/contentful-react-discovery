@@ -5,7 +5,6 @@ export default function ContentTypeListItem ({item, location}) {
   return (
     <li>
       <Link to={{pathname: `/entries/by-content-type/${item.sys.id}`, query: location.query}}>{item.name}</Link>
-      <p>{item.description}</p>
     </li>
   )
 }

@@ -89,7 +89,7 @@ export default createClass({
     } else {
       let contentElement, loadMoreElement
       const backNavLink = <Link to={{pathname: '/entries/by-content-type', query: this.props.location.query}}>&lt; Content Type List</Link>
-      const listTitle = <h3>{this.state.entries.getAt(0).sys.contentType.name}</h3>
+      const listTitle = <h3>Entries</h3>
       if (this.state.entry) {
         contentElement = <Entry entry={this.state.entry.value} location={this.props.location}/>
       } else {
@@ -99,14 +99,9 @@ export default createClass({
       if (this.state.entries.len() < this.state.total) {
         loadMoreElement = <FeaturelessButton label='Load more' action={this.loadEntries}/>
       }
-
       return <TwoPanelList
-        items={this.state.entries.value}
-        ListView={EntryListItem}
-        NavView={backNavLink}
-        TitleView={listTitle}
+        items={[{items: this.state.entries.value, TitleView: listTitle, ListView: EntryListItem}]}
         ContentView={contentElement}
-        ListActionView={loadMoreElement}
         location={this.props.location}
         />
     }
