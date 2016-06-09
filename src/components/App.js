@@ -8,7 +8,10 @@ class App extends React.Component {
       <div styleName='app-container'>
         <nav>
           <div styleName='nav-container'>
-            <img src='./contentful.svg' width='157' height='32'/>
+            <div styleName='logo'>
+              <img src='./contentful_logo_120x90@2x.png' height='32'/>
+              <span>Discovery App</span>
+            </div>
             <Nav query={this.props.location.query} />
           </div>
         </nav>
