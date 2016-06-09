@@ -5,7 +5,6 @@ import List from './List'
 
 function TwoPanelList ({items, ContentView, location}) {
   const lists = []
-  console.log(items)
   items.forEach((topItem, index) => {
     const list = topItem.items.map((innerItem) => <topItem.ListView key={innerItem.sys.id} item={innerItem} location={location}/>)
     lists.push(<List key={index} TitleView={topItem.TitleView} list={list} ListActionView={topItem.ListActionView}/>)

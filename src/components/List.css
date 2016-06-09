@@ -1,7 +1,7 @@
 .list {
-  width: 200px;
+  width: 250px;
   height: 100%;
-  border: 1px solid #C4D1D7;
+  border: 1px solid #CAD5DA;
 }
 
 .list-container {
@@ -19,7 +19,7 @@
   background-color: #DEE4E9;
   padding: 15px;
   color: #2A3038;
-  border-bottom: 2px solid #C4D1D7;
+  border-bottom: 1px solid #CAD5DA;
 }
 
 .list li {
@@ -36,4 +36,5 @@
   border-bottom: none;
   color: #2C333B;
   font-size: 15px;
+  display: block;
 }
