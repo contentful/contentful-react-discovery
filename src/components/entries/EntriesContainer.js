@@ -1,6 +1,5 @@
 import React, {createClass} from 'react'
 import scour from 'scourjs'
-import {Link} from 'react-router'
 import concat from 'unique-concat'
 import {getClient} from '../../services/contentfulClient'
 import {getContentTypes, findContentTypeInList} from '../../services/contentTypeStore'
@@ -8,12 +7,14 @@ import TwoPanelList, {Placeholder} from '../TwoPanelList'
 import EntryListItem from './EntryListItem'
 import Entry from './Entry'
 import FeaturelessButton from '../FeaturelessButton'
+import ContentTypeListItem from '../content-types/ContentTypeListItem'
 
 export default createClass({
   getInitialState () {
     return {
       entry: undefined,
       entries: scour([]),
+      contentTypes: [],
       skip: 0,
       total: undefined,
       phase: 'loading'
@@ -58,6 +59,7 @@ export default createClass({
         entry: entry ? scour(addContentTypeToEntry(entry, contentTypes)) : entry,
         entries: entriesResponse.go('items'),
         skip: skip + entriesResponse.limit,
+        contentTypes: contentTypes,
         total: entriesResponse.total,
         phase: 'loaded'
       })
@@ -88,8 +90,8 @@ export default createClass({
       return <p>No entries are available.</p>
     } else {
       let contentElement, loadMoreElement
-      const backNavLink = <Link to={{pathname: '/entries/by-content-type', query: this.props.location.query}}>&lt; Content Type List</Link>
-      const listTitle = <h3>Entries</h3>
+      const contentTypeListTitle = <h3>Content Types</h3>
+      const entriesListTitle = <h3>Entries</h3>
       if (this.state.entry) {
         contentElement = <Entry entry={this.state.entry.value} location={this.props.location}/>
       } else {
@@ -100,7 +102,8 @@ export default createClass({
         loadMoreElement = <FeaturelessButton label='Load more' action={this.loadEntries}/>
       }
       return <TwoPanelList
-        items={[{items: this.state.entries.value, TitleView: listTitle, ListView: EntryListItem}]}
+        items={[{items: this.state.contentTypes, TitleView: contentTypeListTitle, ListView: ContentTypeListItem},
+                {items: this.state.entries.value, TitleView: entriesListTitle, ListView: EntryListItem}]}
         ContentView={contentElement}
         location={this.props.location}
         />

@@ -2,6 +2,7 @@
   display: flex;
 }
 .list-item-contents {
+  margin-left: 50px;
   width: 750px;
   min-height: 300px;
   position: relative;

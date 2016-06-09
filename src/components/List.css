@@ -1,8 +1,7 @@
 .list {
   width: 200px;
-  margin-right: 50px;
   height: 100%;
-  border: 2px solid #C4D1D7;
+  border: 1px solid #C4D1D7;
 }
 
 .list-container {
