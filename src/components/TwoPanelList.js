@@ -1,18 +1,28 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import CSSModules from 'react-css-modules'
 import styles from './TwoPanelList.css'
 import List from './List'
 
 function TwoPanelList ({items, ContentView, location}) {
-  const lists = []
-  items.forEach((topItem, index) => {
-    const list = topItem.items.map((innerItem) => <topItem.ListView key={innerItem.sys.id} item={innerItem} location={location}/>)
-    lists.push(<List key={index} TitleView={topItem.TitleView} list={list} ListActionView={topItem.ListActionView}/>)
+  const lists = items.map((topItem, index) => {
+    const list = topItem.items.map((innerItem) => {
+      return <topItem.ListView
+        key={innerItem.sys.id}
+        item={innerItem}
+        location={location} />
+    })
+    return <List
+      key={index}
+      TitleView={topItem.TitleView}
+      list={list}
+      ListActionView={topItem.ListActionView} />
   })
   return (
     <div styleName='two-panel-list'>
       {lists}
-      <div styleName='list-item-contents'>{ContentView}</div>
+      <div styleName='list-item-contents'>
+        {ContentView}
+      </div>
     </div>
   )
 }

@@ -88,26 +88,25 @@ export default createClass({
       return <p>Loading your Entries...</p>
     } else if (this.state.entries.len() === 0) {
       return <p>No entries are available.</p>
-    } else {
-      let contentElement, loadMoreElement
-      const contentTypeListTitle = <h3>Content Types</h3>
-      const entriesListTitle = <h3>Entries</h3>
-      if (this.state.entry) {
-        contentElement = <Entry entry={this.state.entry.value} location={this.props.location}/>
-      } else {
-        contentElement = <Placeholder content='Please select your Entry.' />
-      }
-
-      if (this.state.entries.len() < this.state.total) {
-        loadMoreElement = <FeaturelessButton label='Load more' action={this.loadEntries}/>
-      }
-      return <TwoPanelList
-        items={[{items: this.state.contentTypes, TitleView: contentTypeListTitle, ListView: ContentTypeListItem},
-                {items: this.state.entries.value, TitleView: entriesListTitle, ListView: EntryListItem}]}
-        ContentView={contentElement}
-        location={this.props.location}
-        />
     }
+    let contentElement, loadMoreElement
+    const contentTypeListTitle = <h3>Content Types</h3>
+    const entriesListTitle = <h3>Entries</h3>
+    if (this.state.entry) {
+      contentElement = <Entry entry={this.state.entry.value} location={this.props.location}/>
+    } else {
+      contentElement = <Placeholder content='Please select your Entry.' />
+    }
+
+    if (this.state.entries.len() < this.state.total) {
+      loadMoreElement = <FeaturelessButton label='Load more' action={this.loadEntries}/>
+    }
+    return <TwoPanelList
+      items={[{items: this.state.contentTypes, TitleView: contentTypeListTitle, ListView: ContentTypeListItem},
+              {items: this.state.entries.value, TitleView: entriesListTitle, ListView: EntryListItem}]}
+      ContentView={contentElement}
+      location={this.props.location}
+      />
   }
 })
 

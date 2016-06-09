@@ -5,6 +5,7 @@ import styles from './List.css'
 const listContainerStyle = {
   height: (window.innerHeight - 200) + 'px'
 }
+
 class List extends React.Component {
   componentWillMout () {
   }
@@ -20,8 +21,10 @@ class List extends React.Component {
     )
   }
 }
+
 List.propTypes = {
   TitleView: PropTypes.object.isRequired,
   list: PropTypes.array.isRequired
 }
+
 export default CSSModules(List, styles)

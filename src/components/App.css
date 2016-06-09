@@ -53,9 +53,6 @@
   padding-top: 40px;
   composes: centered-container;
 }
-.logo{
-
-}
 .logo span{
   display: block;
   height: 32px;
