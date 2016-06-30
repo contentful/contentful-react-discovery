@@ -28,20 +28,22 @@ let credentials = {
 }
 
 const router = ((
-  <Router history={browserHistory}>
-    <Route path='/' component={App}>
-      <IndexRoute component={SettingsContainer} />
-      <Route path='entries/by-content-type' component={ContentTypesContainer} onEnter={requireCredentials}/>
-      <Route path='entries/by-content-type/:contentTypeId' component={EntriesContainer} onEnter={requireCredentials}>
-        <Route path=':entryId' component={Entry} onEnter={requireCredentials}/>
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path='/' component={App}>
+        <IndexRoute component={SettingsContainer} />
+        <Route path='entries/by-content-type' component={ContentTypesContainer} onEnter={requireCredentials}/>
+        <Route path='entries/by-content-type/:contentTypeId' component={EntriesContainer} onEnter={requireCredentials}>
+          <Route path=':entryId' component={Entry} onEnter={requireCredentials}/>
+        </Route>
+        <Redirect from='entries' to='entries/by-content-type'/>
+        <Route path='assets' component={AssetsContainer} onEnter={requireCredentials}/>
+        <Route path='assets/:assetId' component={AssetContainer} onEnter={requireCredentials}/>
+        <Route path='error' component={Error}/>
+        <Route path='*' component={NoMatch}/>
       </Route>
-      <Redirect from='entries' to='entries/by-content-type'/>
-      <Route path='assets' component={AssetsContainer} onEnter={requireCredentials}/>
-      <Route path='assets/:assetId' component={AssetContainer} onEnter={requireCredentials}/>
-      <Route path='error' component={Error}/>
-      <Route path='*' component={NoMatch}/>
-    </Route>
-  </Router>
+    </Router>
+  </Provider>
 ))
 
 render(router, document.getElementsByTagName('main')[0])

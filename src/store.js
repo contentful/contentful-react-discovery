@@ -8,13 +8,17 @@ import {browserHistory} from 'react-router'
 import rootReducer from './reducers/index'
 
 const initialState = {
-  contentTypes: {}
+  contentTypes: {
+    fetching: false,
+    space: '',
+    deliveryAccessToken: '',
+    previewAccessToken: '',
+    selectedApi: 'delivery',
+    validationError: null,
+    payload: []
+  }
 }
 const middleware = applyMiddleware(promiseMiddleware(), thunk, logger())
-const store = createStore(rootReducer, initialState, middleware)
-const history = syncHistoryWithStore(browserHistory, store)
 
-export default {
-  store,
-  history
-}
+export const store = createStore(rootReducer, initialState, middleware)
+export const history = syncHistoryWithStore(browserHistory, store)

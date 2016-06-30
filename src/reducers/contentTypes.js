@@ -1,4 +1,4 @@
-export function contentTypes (state, action) {
+export function contentTypes (state = {}, action) {
   console.log(state, action)
   return state
 }
