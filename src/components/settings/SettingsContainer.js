@@ -7,7 +7,6 @@ import ApiStore from '../../stores/ApiStore'
 export default class SettingsContainer extends React.Component {
   constructor (props) {
     super(props)
-    this.handleApiSelectionChange = this.handleApiSelectionChange.bind(this)
     let q = this.props.location.query
     this.state = {
       space: q.space_id || '',
@@ -17,14 +16,6 @@ export default class SettingsContainer extends React.Component {
       validationError: null
     }
   }
-  componentWillMount () {
-    ApiStore.addListener('API_SELECTION_CHANGE', this.handleApiSelectionChange)
-  }
-
-  componentWillUnmount () {
-    ApiStore.removeListener('API_SELECTION_CHANGE', this.handleApiSelectionChange)
-  }
-
   loadSpace (event) {
     event.preventDefault()
     if (!this.state.space) {
@@ -47,13 +38,6 @@ export default class SettingsContainer extends React.Component {
     this.context.router.push({
       pathname: '/entries/by-content-type',
       query: query
-    })
-  }
-
-  handleApiSelectionChange (event) {
-    this.setState({
-      selectedApi: ApiStore.get('isPreview') ? 'preview' : 'production',
-      validationError: null
     })
   }
 

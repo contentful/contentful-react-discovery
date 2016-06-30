@@ -16,8 +16,10 @@ import AssetContainer from './components/assets/AssetContainer'
 import Error from './components/Error'
 import NoMatch from './components/NoMatch'
 import isPreviewSetInQuery from './utils/is-preview-set-in-query'
+import {Provider} from 'react-redux'
+import {store, history} from './store'
 
-const history = useRouterHistory(createHistory)({
+const browserHistory = useRouterHistory(createHistory)({
   basename: (process.env.NODE_ENV && process.env.NODE_ENV === 'production') ? '/discovery-app-react/' : '/'
 })
 let credentials = {
@@ -25,8 +27,8 @@ let credentials = {
   space: ''
 }
 
-render((
-  <Router history={history}>
+const router = ((
+  <Router history={browserHistory}>
     <Route path='/' component={App}>
       <IndexRoute component={SettingsContainer} />
       <Route path='entries/by-content-type' component={ContentTypesContainer} onEnter={requireCredentials}/>
@@ -40,7 +42,9 @@ render((
       <Route path='*' component={NoMatch}/>
     </Route>
   </Router>
-), document.getElementsByTagName('main')[0])
+))
+
+render(router, document.getElementsByTagName('main')[0])
 
 /**
  * Checks if client has been initialized.

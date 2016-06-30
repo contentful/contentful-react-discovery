@@ -28,6 +28,7 @@
   "dependencies": {
     "contentful": "^3.1.1",
     "flux": "^2.1.1",
+    "history": "^2.0.1",
     "localforage": "^1.4.0",
     "marked": "^0.3.5",
     "pretty-bytes": "^3.0.1",
@@ -35,8 +36,14 @@
     "react-addons-update": "^15.1.0",
     "react-css-modules": "^3.7.5",
     "react-dom": "^15.0.0-rc.1",
+    "react-redux": "^4.4.5",
     "react-router": "^2.0.0",
-    "history": "^2.0.1",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-promise": "^0.5.3",
+    "redux-promise-middleware": "^3.3.0",
+    "redux-thunk": "^2.1.0",
     "scourjs": "^1.0.1",
     "unique-concat": "^0.2.2"
   },
