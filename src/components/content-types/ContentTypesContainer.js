@@ -5,32 +5,20 @@ import TwoPanelList, {Placeholder} from '../TwoPanelList'
 import ContentTypeListItem from './ContentTypeListItem'
 
 export default createClass({
-  getInitialState () {
-    return {
-      contentTypes: {},
-      phase: 'loading'
-    }
-  },
 
   componentDidMount () {
-    getClient().getContentTypes()
-    .then((contentTypes) => {
-      storeContentTypes(contentTypes.items)
-      this.setState({
-        contentTypes: contentTypes,
-        phase: 'loaded'
-      })
-    })
+    this.props.getContentTypes()
   },
 
   render () {
-    if (this.state.phase === 'loading') {
+    if (this.props.contentTypes.fetching === true) {
       return <p>Loading your Content Types...</p>
     } else {
+      console.log(this.props.contentTypes)
       const listTitle = <h3>Content Types</h3>
       const placeholder = <Placeholder content='Please select your Content Type.' />
       return <TwoPanelList
-        items={[{items: this.state.contentTypes.items, TitleView: listTitle, ListView: ContentTypeListItem}]}
+        items={[{items: this.props.contentTypes.payload, TitleView: listTitle, ListView: ContentTypeListItem}]}
         ContentView={placeholder}
         location={this.props.location}
         />

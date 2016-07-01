@@ -1,12 +1,8 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { Router, Route, IndexRoute, Redirect, useRouterHistory } from 'react-router'
-
-import { createHistory } from 'history'
-
-import { initClient, getClient } from './services/contentfulClient'
-
-import App from './components/App'
+import {render} from 'react-dom'
+import {Router, Route, IndexRoute, Redirect} from 'react-router'
+import {initClient, getClient} from './services/contentfulClient'
+import Main from './components/Main'
 import SettingsContainer from './components/settings/SettingsContainer'
 import ContentTypesContainer from './components/content-types/ContentTypesContainer'
 import EntriesContainer from './components/entries/EntriesContainer'
@@ -19,9 +15,9 @@ import isPreviewSetInQuery from './utils/is-preview-set-in-query'
 import {Provider} from 'react-redux'
 import {store, history} from './store'
 
-const browserHistory = useRouterHistory(createHistory)({
-  basename: (process.env.NODE_ENV && process.env.NODE_ENV === 'production') ? '/discovery-app-react/' : '/'
-})
+// const browserHistory = useRouterHistory(createHistory)({
+//   basename: (process.env.NODE_ENV && process.env.NODE_ENV === 'production') ? '/discovery-app-react/' : '/'
+// })
 let credentials = {
   accessToken: '',
   space: ''
@@ -30,7 +26,7 @@ let credentials = {
 const router = ((
   <Provider store={store}>
     <Router history={history}>
-      <Route path='/' component={App}>
+      <Route path='/' component={Main}>
         <IndexRoute component={SettingsContainer} />
         <Route path='entries/by-content-type' component={ContentTypesContainer} onEnter={requireCredentials}/>
         <Route path='entries/by-content-type/:contentTypeId' component={EntriesContainer} onEnter={requireCredentials}>

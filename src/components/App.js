@@ -34,7 +34,7 @@ class App extends React.Component {
           </div>
         </nav>
         <div styleName='content-container'>
-          {this.props.children}
+          {React.cloneElement(this.props.children, this.props)}
         </div>
       </div>
     )

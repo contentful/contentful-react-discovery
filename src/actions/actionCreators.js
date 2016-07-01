@@ -1,23 +1,23 @@
-import {getContentTypes, findContentTypeInList} from '../../services/contentTypeStore'
+import * as contentTypeServie from '../services/contentTypeStore'
 
 // since we are using promises already we can make redux-promise-middlware create
 // so actions automatically for us so if we pass in a promise in the payload ti will
-// dispatch ACTION_TYPE_PENDING, ACTION_TYPE_FINISH and ACTION_TYPE_ERROR automatically
-export function getContentTypeAction () {
+// dispatch ACTION_TYPE_PENDING, ACTION_TYPE_FULFILLED and ACTION_TYPE_REJECTED automatically
+export function getContentTypes () {
   return {
     type: 'FETCH_CONTENT_TYPES',
-    payload: getContentTypes()
+    payload: contentTypeServie.getContentTypes()
   }
 }
 
-export function findContentTypeInListAction (contentTypes, id) {
+export function findContentTypeInList (contentTypes, id) {
   return {
     type: 'FIND_CONTENT_TYPE_IN_LIST',
-    payload: findContentTypeInList(contentTypes, id)
+    payload: contentTypeServie.findContentTypeInList(contentTypes, id)
   }
 }
 
-export function findContentTypeAction (id) {
+export function findContentType (id) {
   return {
     type: 'FIND_CONTENT_TYPE',
     id
