@@ -1,4 +1,5 @@
 import * as contentTypeServie from '../services/contentTypeStore'
+import * as entriesService from '../services/entriesStore'
 
 // since we are using promises already we can make redux-promise-middlware create
 // so actions automatically for us so if we pass in a promise in the payload ti will
@@ -21,5 +22,12 @@ export function findContentType (id) {
   return {
     type: 'FIND_CONTENT_TYPE',
     id
+  }
+}
+
+export function loadEntries ({entryId, contentTypeId, contentTypeChanged} = {}) {
+  return {
+    type: 'FETCH_ENTRIES',
+    payload: entriesService.loadEntries({entryId, contentTypeId, contentTypeChanged})
   }
 }

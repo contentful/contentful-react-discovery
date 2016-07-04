@@ -4,7 +4,8 @@ import * as actionCreators from '../actions/actionCreators'
 import App from './App'
 function mapStateToProps (state) {
   return {
-    contentTypes: state.contentTypes
+    contentTypes: state.contentTypes,
+    entries: state.entries
   }
 }
 function mapDispatchToProps (dispatch) {

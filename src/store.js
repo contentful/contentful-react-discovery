@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 import promiseMiddleware from 'redux-promise-middleware'
 import {syncHistoryWithStore} from 'react-router-redux'
 import {browserHistory} from 'react-router'
-
+import scour from 'scourjs'
 import rootReducer from './reducers/index'
 
 const initialState = {
@@ -16,6 +16,14 @@ const initialState = {
     selectedApi: 'delivery',
     validationError: null,
     payload: []
+  },
+  entries: {
+    fetching: false,
+    entry: undefined,
+    entries: scour([]),
+    skip: 0,
+    total: undefined,
+    error: null
   }
 }
 const middleware = applyMiddleware(promiseMiddleware(), thunk, logger())

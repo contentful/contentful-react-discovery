@@ -40,11 +40,11 @@ const AssetsContainer = createClass({
   },
   render () {
     if (this.state.phase === 'loading') {
-      return <div styleName='assets'><p>Loading your Assets...</p></div>
+      return <div><p>Loading your Assets...</p></div>
     } else if (this.state.assets.length === 0) {
-      return <div styleName='assets'><p>No assets are available.</p></div>
+      return <div><p>No assets are available.</p></div>
     }
-    return <div styleName='assets'>
+    return <div>
       <Search itemCount={this.state.assets.items.length} label='media assets' onChange={this.onChangeHandler}/>
       <Assets items={this.state.assets.items} location={this.props.location}/>
     </div>
