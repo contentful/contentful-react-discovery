@@ -3,9 +3,9 @@ import {getClient} from './contentfulClient'
 import {getContentTypes, findContentTypeInList} from './contentTypeStore'
 import concat from 'unique-concat'
 
-export function loadEntries (state, {entryId, contentTypeId, contentTypeChanged} = {}) {
-  const skip = contentTypeChanged ? 0 : state.skip// TODO replace state.skip to the correct value
-  Promise.all([
+function loadEntries (entries, {entryId, contentTypeId, contentTypeChanged} = {}) {
+  const skip = contentTypeChanged ? 0 : entries.skip
+  return Promise.all([
     getClient().getEntries({
       content_type: contentTypeId,
       skip: skip,
@@ -13,11 +13,11 @@ export function loadEntries (state, {entryId, contentTypeId, contentTypeChanged}
       order: 'sys.createdAt'
     }),
     getContentTypes(),
-    findEntry(entryId, state)
+    findEntry(entryId, entries)
   ]).then(([entriesResponse, contentTypes, entry]) => {
     entriesResponse = scour(entriesResponse)
                       .set('items', appendAndAugmentEntries(
-                        contentTypeChanged ? [] : state.entries.value, // TODO change this to the correct value
+                        contentTypeChanged ? [] : entries.entries.value,
                         entriesResponse.items,
                         contentTypes
                       ))
@@ -25,15 +25,15 @@ export function loadEntries (state, {entryId, contentTypeId, contentTypeChanged}
       entry: entry ? scour(addContentTypeToEntry(entry, contentTypes)) : entry,
       entries: entriesResponse.go('items'),
       skip: skip + entriesResponse.limit,
-      contentTypes: contentTypes,
+      contentTypes,
       total: entriesResponse.total
     }
   })
 }
 
-function findEntry (id, state) {
+function findEntry (id, entries) {
   if (!id) return Promise.resolve(undefined)
-  const entry = state.entries.find({'sys.id': {'$eq': id}})
+  const entry = entries.entries.find(({'sys.id': {'$eq': id}}))
   if (entry) {
     return Promise.resolve(entry.value)
   } else {
@@ -64,4 +64,8 @@ function addContentTypeToEntry (entry, contentTypes) {
   const contentTypeId = entry.sys.contentType.sys.id
   entry.sys.contentType = findContentTypeInList(contentTypes, contentTypeId)
   return entry
+}
+
+export {
+  loadEntries
 }

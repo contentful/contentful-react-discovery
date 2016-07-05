@@ -25,9 +25,9 @@ export function findContentType (id) {
   }
 }
 
-export function loadEntries ({entryId, contentTypeId, contentTypeChanged} = {}) {
+export function loadEntries (entries, {entryId, contentTypeId, contentTypeChanged} = {}) {
   return {
     type: 'FETCH_ENTRIES',
-    payload: entriesService.loadEntries({entryId, contentTypeId, contentTypeChanged})
+    payload: entriesService.loadEntries(entries, {entryId, contentTypeId, contentTypeChanged})
   }
 }
