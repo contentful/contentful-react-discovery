@@ -14,7 +14,6 @@ export default createClass({
     if (this.props.contentTypes.fetching === true) {
       return <p>Loading your Content Types...</p>
     } else {
-      console.log(this.props.contentTypes)
       const listTitle = <h3>Content Types</h3>
       const placeholder = <Placeholder content='Please select your Content Type.' />
       return <TwoPanelList

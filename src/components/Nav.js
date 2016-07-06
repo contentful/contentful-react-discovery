@@ -28,6 +28,7 @@ class Nav extends React.Component {
     const q = this.props.query
     return (
       <ul>
+        <li><Link to={{pathname: '/requests', query: q}}>Requests</Link></li>
         <li styleName={this.selectedWhenIn(PREVIEW)}>Preview</li>
         <li><ToggleButton changeHandler={this.handleChange.bind(this)}/></li>
         <li styleName={this.selectedWhenIn(PRODUCTION)}>Production</li>

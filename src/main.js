@@ -9,6 +9,7 @@ import EntriesContainer from './components/entries/EntriesContainer'
 import Entry from './components/entries/Entry'
 import AssetsContainer from './components/assets/AssetsContainer'
 import AssetContainer from './components/assets/AssetContainer'
+import Requests from './components/requests/Requests'
 import Error from './components/Error'
 import NoMatch from './components/NoMatch'
 import isPreviewSetInQuery from './utils/is-preview-set-in-query'
@@ -29,6 +30,7 @@ const router = ((
       <Route path='/' component={Main}>
         <IndexRoute component={SettingsContainer} />
         <Route path='entries/by-content-type' component={ContentTypesContainer} onEnter={requireCredentials}/>
+        <Route path='requests' component={Requests} onEnter={requireCredentials}/>
         <Route path='entries/by-content-type/:contentTypeId' component={EntriesContainer} onEnter={requireCredentials}>
           <Route path=':entryId' component={Entry} onEnter={requireCredentials}/>
         </Route>
