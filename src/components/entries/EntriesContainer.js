@@ -13,19 +13,22 @@ export default createClass({
   },
 
   componentWillReceiveProps (nextProps) {
-    if (this.props.params.entryId !== nextProps.params.entryId ||
-        this.props.params.contentTypeId !== nextProps.params.contentTypeId
+    const {params: currentParams} = this.props
+    const {params: nextParams} = nextProps
+    if (currentParams.entryId !== nextParams.entryId ||
+        currentParams.contentTypeId !== nextParams.contentTypeId
     ) {
       this.props.loadEntries(this.props.entries, {
-        entryId: nextProps.params.entryId,
-        contentTypeId: nextProps.params.contentTypeId,
-        contentTypeChanged: this.props.params.contentTypeId !== nextProps.params.contentTypeId
+        entryId: nextParams.entryId,
+        contentTypeId: nextParams.contentTypeId,
+        contentTypeChanged: currentParams.contentTypeId !== nextParams.contentTypeId
       })
     }
   },
   loadEntries () {
-    this.props.loadEntries(this.props.entries, {entryId: this.props.params.entryId,
-                                                contentTypeId: this.props.params.contentTypeId,
+    const {params} = this.props
+    this.props.loadEntries(this.props.entries, {entryId: params.entryId,
+                                                contentTypeId: params.contentTypeId,
                                                 contentTypeChanged: false})
   },
   render () {
