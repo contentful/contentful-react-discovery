@@ -1,0 +1,18 @@
+.counter {
+  color: white;
+  display: inline-block;
+  position: relative;
+  padding: 2px 5px;
+}
+.counter .badge{
+  background-color: #fa3e3e;
+  border-radius: 2px;
+  color: white;
+
+  padding: 1px 3px;
+  font-size: 10px;
+
+  position: absolute; /* Position the badge within the relatively positioned button */
+  top: -10px;
+  right: 5px;
+}
