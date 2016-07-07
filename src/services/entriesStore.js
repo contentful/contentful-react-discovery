@@ -17,7 +17,7 @@ function loadEntries (entries, {entryId, contentTypeId, contentTypeChanged} = {}
   ]).then(([entriesResponse, contentTypes, entry]) => {
     entriesResponse = scour(entriesResponse)
                       .set('items', appendAndAugmentEntries(
-                        contentTypeChanged ? [] : entries.entries.value,
+                        contentTypeChanged ? [] : entries.payload.value,
                         entriesResponse.items,
                         contentTypes
                       ))
@@ -33,7 +33,7 @@ function loadEntries (entries, {entryId, contentTypeId, contentTypeChanged} = {}
 
 function findEntry (id, entries) {
   if (!id) return Promise.resolve(undefined)
-  const entry = entries.entries.find(({'sys.id': {'$eq': id}}))
+  const entry = entries.payload.find(({'sys.id': {'$eq': id}}))
   if (entry) {
     return Promise.resolve(entry.value)
   } else {

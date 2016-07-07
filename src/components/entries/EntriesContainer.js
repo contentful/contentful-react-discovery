@@ -35,7 +35,7 @@ export default createClass({
     const {entries} = this.props
     if (this.props.fetching === true) {
       return <p>Loading your Entries...</p>
-    } else if (entries.entries.len() === 0) {
+    } else if (entries.payload.len() === 0) {
       return <p>No entries are available.</p>
     }
     let contentElement, loadMoreElement
@@ -47,12 +47,12 @@ export default createClass({
       contentElement = <Placeholder content='Please select your Entry.' />
     }
 
-    if (entries.entries.len() < entries.total) {
+    if (entries.payload.len() < entries.total) {
       loadMoreElement = <FeaturelessButton label='Load more' action={this.loadEntries}/>
     }
     return <TwoPanelList
       items={[{items: this.props.contentTypes.payload, TitleView: contentTypeListTitle, ListView: ContentTypeListItem},
-              {items: entries.entries.value, TitleView: entriesListTitle, ListView: EntryListItem}]}
+              {items: entries.payload.value, TitleView: entriesListTitle, ListView: EntryListItem}]}
       ContentView={contentElement}
       location={this.props.location}
       />

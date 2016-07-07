@@ -20,7 +20,7 @@ const initialState = {
   entries: {
     fetching: false,
     entry: undefined,
-    entries: scour([]),
+    payload: scour([]),
     skip: 0,
     total: undefined,
     error: null
