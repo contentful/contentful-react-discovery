@@ -5,9 +5,10 @@ import List from './List'
 
 function TwoPanelList ({items, ContentView, location}) {
   const lists = items.map((topItem, index) => {
-    const list = topItem.items.map((innerItem) => {
+    const list = topItem.items.map((innerItem, innerIndex) => {
       return <topItem.ListView
-        key={innerItem.sys.id}
+        key={innerItem.sys ? innerItem.sys.id : innerIndex}
+        i={innerIndex}
         item={innerItem}
         location={location} />
     })
@@ -17,9 +18,6 @@ function TwoPanelList ({items, ContentView, location}) {
       list={list}
       ListActionView={topItem.ListActionView} />
   })
-  function handleChange () {
-    console.log('searching')
-  }
   return (
     <div styleName='two-panel-list'>
       {lists}

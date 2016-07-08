@@ -7,6 +7,7 @@ import SettingsContainer from './components/settings/SettingsContainer'
 import ContentTypesContainer from './components/content-types/ContentTypesContainer'
 import EntriesContainer from './components/entries/EntriesContainer'
 import Entry from './components/entries/Entry'
+import Request from './components/requests/Request'
 import AssetsContainer from './components/assets/AssetsContainer'
 import AssetContainer from './components/assets/AssetContainer'
 import Requests from './components/requests/Requests'
@@ -30,7 +31,9 @@ const router = ((
       <Route path='/' component={Main}>
         <IndexRoute component={SettingsContainer} />
         <Route path='entries/by-content-type' component={ContentTypesContainer} onEnter={requireCredentials}/>
-        <Route path='requests' component={Requests} onEnter={requireCredentials}/>
+        <Route path='requests' component={Requests} onEnter={requireCredentials}>
+          <Route path=':requestId' component={Request} onEnter={requireCredentials}/>
+        </Route>
         <Route path='entries/by-content-type/:contentTypeId' component={EntriesContainer} onEnter={requireCredentials}>
           <Route path=':entryId' component={Entry} onEnter={requireCredentials}/>
         </Route>

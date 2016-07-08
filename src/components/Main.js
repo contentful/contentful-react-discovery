@@ -5,7 +5,8 @@ import App from './App'
 function mapStateToProps (state) {
   return {
     contentTypes: state.contentTypes,
-    entries: state.entries
+    entries: state.entries,
+    requests: state.requests
   }
 }
 function mapDispatchToProps (dispatch) {

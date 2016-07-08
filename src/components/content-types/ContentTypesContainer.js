@@ -1,6 +1,4 @@
 import React, {createClass} from 'react'
-import {getClient} from '../../services/contentfulClient'
-import {storeContentTypes} from '../../services/contentTypeStore'
 import TwoPanelList, {Placeholder} from '../TwoPanelList'
 import ContentTypeListItem from './ContentTypeListItem'
 
@@ -9,7 +7,6 @@ export default createClass({
   componentDidMount () {
     this.props.getContentTypes()
   },
-
   render () {
     if (this.props.contentTypes.fetching === true) {
       return <p>Loading your Content Types...</p>

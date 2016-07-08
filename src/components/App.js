@@ -14,7 +14,7 @@ class App extends React.Component {
               <img src='./contentful_logo_120x90@2x.png' height='32'/>
               <span>Discovery App</span>
             </div>
-            <NotificationLink styleName='requests-link' label='Requests' to={{pathname: '/requests', query: this.props.location.query}}/>
+            <NotificationLink count={this.props.requests.length} styleName='requests-link' label='Requests' to={{pathname: '/requests', query: this.props.location.query}}/>
             <Nav query={this.props.location.query} />
           </div>
         </nav>

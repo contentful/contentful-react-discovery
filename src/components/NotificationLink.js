@@ -10,7 +10,7 @@ class NotificationLink extends React.Component {
     return (
       <div>
         <div styleName='counter'>
-          <span styleName='badge'>0</span>
+          <span styleName='badge'>{this.props.count}</span>
         </div>
         <Link to={this.props.to}>{this.props.label}</Link>
       </div>
@@ -19,6 +19,7 @@ class NotificationLink extends React.Component {
 }
 NotificationLink.propTypes = {
   label: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired,
   to: PropTypes.object.isRequired
 }
 

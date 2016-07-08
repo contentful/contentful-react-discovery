@@ -24,7 +24,8 @@ const initialState = {
     skip: 0,
     total: undefined,
     error: null
-  }
+  },
+  requests: []
 }
 const middleware = applyMiddleware(promiseMiddleware(), thunk, logger())
 
