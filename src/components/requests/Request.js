@@ -2,9 +2,32 @@ import React from 'react'
 import JSONTree from 'react-json-tree'
 import Tabs from '../tabs/Tabs'
 import Pane from '../tabs/Pane'
-export default function Request ({request, location}) {
+import styles from './Request.css'
+import CSSModules from 'react-css-modules'
+function Request ({request, location}) {
+  function parseUrl (urlWithParams) {
+    const urlSections = urlWithParams.split('?')
+    const url = urlSections[0]
+    const params = urlSections[1].split('&').map((item) => {
+      const param = item.split('=')
+      let paramObj = {}
+      paramObj[`${param[0]}`] = param[1]
+      return paramObj
+    })
+    return {
+      url,
+      params
+    }
+  }
+  const urlData = parseUrl(request.url)
   return (
     <div>
+      <div styleName='request-meta'>
+        <p> <strong>Request URL</strong>: {urlData.url} </p>
+        <p> <strong>Request Method</strong>: GET </p>
+        <p> <strong>Request Paramaters</strong>: </p>
+        <JSONTree data={urlData.params} />
+      </div>
       <Tabs selected={0}>
         <Pane label='Raw JSON Output'>
           <div><JSONTree data={request.rawPayload} /></div>
@@ -17,3 +40,4 @@ export default function Request ({request, location}) {
     </div>
   )
 }
+export default CSSModules(Request, styles)

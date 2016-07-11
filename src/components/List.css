@@ -8,7 +8,7 @@
 
 .list-container {
   margin-top: 10px;
-  height: 450px;
+  height: 100%;
   overflow: auto;
   padding-right: 5px;
 }
