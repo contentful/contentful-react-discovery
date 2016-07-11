@@ -12,7 +12,7 @@ export function contentTypes (state = {}, action) {
         deliveryAccessToken: query.delivery_access_token || '',
         space: query.space_id || '',
         previewAccessToken: query.preview_access_token || '',
-        selectedApi: (query.preview && query.preview === 'true') ? 'preview' : 'production'
+        selectedApi: (query.preview && query.preview === 'true') ? 'preview' : 'delivery'
       })
   }
   return state

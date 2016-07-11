@@ -26,14 +26,14 @@ function SettingsForm ({
           <p styleName='error' style={errorDisplay}>{validationError}</p>
           <div>
             <h1>Access any Space with Space ID and API Key</h1>
-            <a href='#'>Where do I find Space ID and Production API Key</a>
+            <a href='#'>Where do I find Space ID and Delivery API Key</a>
           </div>
           <div>
             <label htmlFor='space' styleName='label-title'>Space ID</label>
             <input styleName='spaceInput' id='space' type='text' value={space} onChange={handleChange}/>
           </div>
           <div>
-            <label htmlFor='deliveryAccessToken' styleName='label-title'>Production API key</label>
+            <label htmlFor='deliveryAccessToken' styleName='label-title'>Delivery API key</label>
             <input id='deliveryAccessToken' type='text' value={deliveryAccessToken} onChange={handleChange}/>
           </div>
           <div>
