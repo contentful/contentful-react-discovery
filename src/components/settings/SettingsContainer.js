@@ -81,7 +81,7 @@ export default class SettingsContainer extends React.Component {
       deliveryAccessToken={this.state.deliveryAccessToken}
       previewAccessToken={this.state.previewAccessToken}
       selectedApi={this.state.selectedApi}
-      handleChange={this.handleChange}
+      handleChange={this.handleChange.bind(this)}
       loadSpace={this.loadSpace.bind(this)}
       validationError={this.state.validationError}
       />

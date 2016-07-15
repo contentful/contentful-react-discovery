@@ -30,15 +30,15 @@ function SettingsForm ({
           </div>
           <div>
             <label htmlFor='space' styleName='label-title'>Space ID</label>
-            <input styleName='spaceInput' id='space' type='text' value={space} onChange={handleChange}/>
+            <input styleName='spaceInput' id='space' type='text' defaultValue={space} onChange={handleChange}/>
           </div>
           <div>
             <label htmlFor='deliveryAccessToken' styleName='label-title'>Delivery API key</label>
-            <input id='deliveryAccessToken' type='text' value={deliveryAccessToken} onChange={handleChange}/>
+            <input id='deliveryAccessToken' type='text' defaultValue={deliveryAccessToken} onChange={handleChange}/>
           </div>
           <div>
             <label htmlFor='deliveryAccessToken' styleName='label-title'>Preview API key</label>
-            <input id='deliveryAccessToken' type='text' value={previewAccessToken} onChange={handleChange}/>
+            <input id='deliveryAccessToken' type='text' defaultValue={previewAccessToken} onChange={handleChange}/>
           </div>
           <button type='submit'>Load Space</button>
         </div>
