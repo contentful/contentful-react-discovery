@@ -33,8 +33,8 @@ export default createClass({
   },
   render () {
     const {entries} = this.props
-    if (this.props.fetching === true) {
-      return <p>Loading your Entries...</p>
+    if (entries.fetching === true) {
+      return <p>Loading your Entries....</p>
     } else if (entries.payload.len() === 0) {
       return <p>No entries are available.</p>
     }

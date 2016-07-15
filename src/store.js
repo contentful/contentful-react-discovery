@@ -3,7 +3,7 @@ import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 import promiseMiddleware from 'redux-promise-middleware'
 import {syncHistoryWithStore} from 'react-router-redux'
-import {browserHistory} from 'react-router'
+import {hashHistory} from 'react-router'
 import scour from 'scourjs'
 import rootReducer from './reducers/index'
 
@@ -38,4 +38,4 @@ function RunDevToolExtensionIfNotInProduction () {
 export const store = createStore(rootReducer, initialState, compose(middleware,
        RunDevToolExtensionIfNotInProduction()
     ))
-export const history = syncHistoryWithStore(browserHistory, store)
+export const history = syncHistoryWithStore(hashHistory, store)
