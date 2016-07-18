@@ -28,6 +28,11 @@ export function loadEntries (entries, {entryId, contentTypeId, contentTypeChange
     })
   }
 }
+export function resetRequests () {
+  return {
+    type: 'RESET_REQUESTS'
+  }
+}
 export function appendRequest (url, path, payload) {
   return {
     type: 'APPEND_REQUEST',

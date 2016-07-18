@@ -26,6 +26,7 @@ export default class SettingsContainer extends React.Component {
       return this.showError('You need to provide a Delivery API Access Token if you want to use the Delivery API')
     }
     resetClient()
+    this.props.resetRequests()
     const query = {
       preview_access_token: this.state.previewAccessToken,
       delivery_access_token: this.state.deliveryAccessToken,
