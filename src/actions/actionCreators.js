@@ -9,7 +9,7 @@ export function getContentTypes () {
   return {
     type: 'FETCH_CONTENT_TYPES',
     payload: contentTypeServie.getContentTypes().then((payload) => {
-      const path = '/content_types?access_token=<ACCESSTOKEN>&skip=0&limit=100&order=sys.createdAt'
+      const path = '/content_types/?access_token=<ACCESSTOKEN>&skip=0&limit=100&order=sys.createdAt'
       const url = getRawRequestUrl(path)
       store.dispatch(appendRequest(url, path, payload))
       return payload
@@ -40,13 +40,20 @@ export function appendRequest (url, path, payload) {
       return {
         parsedPayload: payload,
         rawPayload: response.data,
-        path,
+        path: shortenPath(path),
         url
       }
     })
   }
 }
-
+function shortenPath (path) {
+  path = path.substring(0, path.indexOf('?'))
+  if (path.length > 30) {
+    path = path.substring(0, 27)
+    path += '...'
+  }
+  return path
+}
 function getRawRequestUrl (path) {
   const {space, selectedApi} = store.getState().contentTypes
   const accessToken = selectedApi === 'preview' ? store.getState().contentTypes.previewAccessToken : store.getState().contentTypes.deliveryAccessToken
