@@ -29,7 +29,7 @@ function Request ({request, location}) {
         <JSONTree data={urlData.params} />
       </div>
       <Tabs selected={0}>
-        <Pane label='Raw JSON Output'>
+        <Pane label='Response'>
           <div><JSONTree data={request.rawPayload} /></div>
         </Pane>
         <Pane label='Contentful.js Output'>

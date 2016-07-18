@@ -9,7 +9,7 @@ export default createClass({
   componentDidMount () {
     this.props.loadEntries(this.props.entries, {entryId: this.props.params.entryId,
                                                 contentTypeId: this.props.params.contentTypeId,
-                                                contentTypeChanged: false})
+                                                contentTypeChanged: true})
   },
 
   componentWillReceiveProps (nextProps) {
