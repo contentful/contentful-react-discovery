@@ -37,8 +37,8 @@ function SettingsForm ({
             <input id='deliveryAccessToken' type='text' defaultValue={deliveryAccessToken} onChange={handleChange}/>
           </div>
           <div>
-            <label htmlFor='deliveryAccessToken' styleName='label-title'>Preview API key</label>
-            <input id='deliveryAccessToken' type='text' defaultValue={previewAccessToken} onChange={handleChange}/>
+            <label htmlFor='previewAccessToken' styleName='label-title'>Preview API key</label>
+            <input id='previewAccessToken' type='text' defaultValue={previewAccessToken} onChange={handleChange}/>
           </div>
           <button type='submit'>Load Space</button>
         </div>

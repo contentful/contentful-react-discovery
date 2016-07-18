@@ -16,6 +16,7 @@ import NoMatch from './components/NoMatch'
 import isPreviewSetInQuery from './utils/is-preview-set-in-query'
 import {Provider} from 'react-redux'
 import {store, history} from './store'
+import {resetClient} from './services/contentfulClient'
 
 // const browserHistory = useRouterHistory(createHistory)({
 //   basename: (process.env.NODE_ENV && process.env.NODE_ENV === 'production') ? '/discovery-app-react/' : '/'
@@ -65,6 +66,7 @@ function requireCredentials (nextState, replace, next) {
     preview: isPreview
   }
   if (credentialsExist(newCredentials) && (!getClient() || credentialsAreDifferent(credentials, newCredentials))) {
+    resetClient()
     initializeClient(newCredentials, next, replace)
   } else if (!query.space_id && !query.access_token) {
     replace('/')

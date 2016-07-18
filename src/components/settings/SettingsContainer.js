@@ -47,8 +47,11 @@ export default class SettingsContainer extends React.Component {
       case 'space':
         this.setState({ space: event.target.value })
         break
-      case 'selectedAccessToken':
-        this.handleAccessTokenChange(event.target.value)
+      case 'deliveryAccessToken':
+        this.setState({ deliveryAccessToken: event.target.value })
+        break
+      case 'previewAccessToken':
+        this.setState({ previewAccessToken: event.target.value })
         break
     }
   }

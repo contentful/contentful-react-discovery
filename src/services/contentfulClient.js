@@ -21,6 +21,7 @@ function getClient () {
 }
 
 function resetClient () {
+  window.sessionStorage.clear()
   authorized = false
 }
 
