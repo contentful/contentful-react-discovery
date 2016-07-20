@@ -3,7 +3,7 @@
   border-left: 1px solid #CAD5DA;
 }
 .list-item-contents {
-  padding:40px 0 0 50px;
+  padding:40px 50px 0 50px;
   width: 750px;
   min-height: 300px;
   position: relative;
