@@ -7,7 +7,7 @@ export default function RequestListItem ({item, i, location}) {
   }
   return (
     <li className={getClassIfCurrentlySelected()}>
-      <Link to={{pathname: `/requests/${i}`, query: location.query}}>{item.path}</Link>
+      <Link to={{pathname: `/requests/${i}`, query: location.query}}>{`[${item.time}] ${item.path}`}</Link>
     </li>
   )
 }

@@ -2,6 +2,8 @@ import * as contentTypeServie from '../services/contentTypeStore'
 import * as entriesService from '../services/entriesStore'
 import {store} from '../store'
 import axios from 'axios'
+
+const currentDate = new Date()
 // since we are using promises already we can make redux-promise-middlware create
 // so actions automatically for us so if we pass in a promise in the payload ti will
 // dispatch ACTION_TYPE_PENDING, ACTION_TYPE_FULFILLED and ACTION_TYPE_REJECTED automatically
@@ -48,6 +50,7 @@ export function appendRequest (url, path, payload) {
         parsedPayload: payload,
         rawPayload: response.data,
         path: shortenPath(path),
+        time: currentDate.toTimeString().split(' ')[0], // take only the time part
         url
       }
     })
