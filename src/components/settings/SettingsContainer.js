@@ -30,7 +30,7 @@ export default class SettingsContainer extends React.Component {
     const query = {
       preview_access_token: this.state.previewAccessToken,
       delivery_access_token: this.state.deliveryAccessToken,
-      preview: ApiStore.get('isPreview'),
+      preview: this.props.api.selectedApi === 'preview',
       space_id: this.state.space
     }
     if (this.previewSelected()) {

@@ -17,6 +17,13 @@ export function getContentTypes () {
   }
 }
 
+export function toggleAPIMode (isPreview) {
+  return {
+    type: 'TOGGLE_API_PREVIEW',
+    isPreview
+  }
+}
+
 export function loadEntries (entries, {entryId, contentTypeId, contentTypeChanged} = {}) {
   return {
     type: 'FETCH_ENTRIES',
@@ -55,8 +62,8 @@ function shortenPath (path) {
   return path
 }
 function getRawRequestUrl (path) {
-  const {space, selectedApi} = store.getState().contentTypes
-  const accessToken = selectedApi === 'preview' ? store.getState().contentTypes.previewAccessToken : store.getState().contentTypes.deliveryAccessToken
+  const {space, selectedApi} = store.getState().api
+  const accessToken = selectedApi === 'preview' ? store.getState().api.previewAccessToken : store.getState().api.deliveryAccessToken
   let host = selectedApi === 'preview' ? '//preview.contentful.com' : '//cdn.contentful.com'
   let url = 'https:' + host + `/spaces/${space}${path}`.replace(/<ACCESSTOKEN>/i, accessToken)
   return url

@@ -4,6 +4,7 @@ import {routerReducer} from 'react-router-redux'
 import {contentTypes} from './contentTypes'
 import {entries} from './entries'
 import {requests} from './requests'
-const rootReducer = combineReducers({contentTypes, entries, requests, routing: routerReducer})
+import {api} from './api'
+const rootReducer = combineReducers({api, contentTypes, entries, requests, routing: routerReducer})
 
 export default rootReducer

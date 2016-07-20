@@ -18,9 +18,6 @@ import {Provider} from 'react-redux'
 import {store, history} from './store'
 import {resetClient} from './services/contentfulClient'
 
-// const browserHistory = useRouterHistory(createHistory)({
-//   basename: (process.env.NODE_ENV && process.env.NODE_ENV === 'production') ? '/discovery-app-react/' : '/'
-// })
 let credentials = {
   accessToken: '',
   space: ''

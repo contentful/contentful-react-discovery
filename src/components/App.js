@@ -15,7 +15,7 @@ class App extends React.Component {
               <span>Discovery App</span>
             </div>
             <NotificationLink count={this.props.requests.length} styleName='requests-link' label='Requests' to={{pathname: '/requests', query: this.props.location.query}}/>
-            <Nav query={this.props.location.query} />
+            <Nav location={this.props.location} />
           </div>
         </nav>
         <div styleName='content-container'>

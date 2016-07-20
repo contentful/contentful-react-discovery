@@ -8,12 +8,14 @@ import scour from 'scourjs'
 import rootReducer from './reducers/index'
 
 const initialState = {
-  contentTypes: {
-    fetching: false,
-    space: '',
+  api: {
     deliveryAccessToken: '',
     previewAccessToken: '',
     selectedApi: 'delivery',
+    space: ''
+  },
+  contentTypes: {
+    fetching: false,
     validationError: null,
     payload: []
   },
