@@ -5,7 +5,7 @@ import getID from '../utils/getID'
 
 class ToggleButton extends React.Component {
   componentWillMount () {
-    this.state = {isChecked: false}
+    this.state = {isChecked: this.props.preview === 'true'}
     this.onChange = this.onChange.bind(this)
     this.toggleId = getID()
   }

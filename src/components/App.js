@@ -7,7 +7,18 @@ import ToggleButton from './ToggleButton'
 import {getClient} from '../services/contentfulClient'
 
 class App extends React.Component {
-  handleChange () {
+  handleChange (isPreview) {
+    const {api} = this.props
+    const query = {
+      preview_access_token: api.previewAccessToken,
+      delivery_access_token: api.deliveryAccessToken,
+      preview: isPreview,
+      space_id: api.space
+    }
+    this.context.router.push({
+      pathname: '/entries/by-content-type',
+      query: query
+    })
   }
   shouldDisplay () {
     if (!getClient()) {

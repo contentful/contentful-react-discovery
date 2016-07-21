@@ -50,7 +50,7 @@ function SettingsForm ({
         </section>
         <section>
           <h4>Still don't have a Space?</h4>
-          <p><Link to='/entries/by-content-type?space_id=cfexampleapi&preview=true&preview_access_token=e5e8d4c5c122cf28fc1af3ff77d28bef78a3952957f15067bbc29f2f0dde0b50&delivery_access_token=b4c0n73n7fu1'>Load a demo Space</Link> or <a href='https://www.contentful.com/sign-up' target='_blank'>Create an account</a></p>
+          <p><Link to='/entries/by-content-type?space_id=cfexampleapi&preview=false&preview_access_token=e5e8d4c5c122cf28fc1af3ff77d28bef78a3952957f15067bbc29f2f0dde0b50&delivery_access_token=b4c0n73n7fu1'>Load a demo Space</Link> or <a href='https://www.contentful.com/sign-up' target='_blank'>Create an account</a></p>
         </section>
         <section>
           <h4>What is Contentful</h4>

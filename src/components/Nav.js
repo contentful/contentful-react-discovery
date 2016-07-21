@@ -2,19 +2,6 @@ import React, {PropTypes} from 'react'
 import {Link} from 'react-router'
 
 export default class Nav extends React.Component {
-  constructor () {
-    super()
-    this.state = {currentTokenType: 'preview'}
-  }
-  handleChange (isPreview) {
-    this.setState({currentTokenType: isPreview ? 'delivery' : 'preview'})
-  }
-  selectedWhenIn (mode) {
-    if (mode === this.state.currentTokenType) {
-      return 'selected'
-    }
-    return 'idle'
-  }
   render () {
     const q = this.props.location.query
     return (
