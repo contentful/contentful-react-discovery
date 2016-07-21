@@ -30,10 +30,10 @@
     text-align: right;
 }
 .onoffswitch-switch {
-    display: block; width: 14px; margin: 2px;
+    display: block; width: 16px; margin: 2px;
     background: #5A9EEE;
     position: absolute; top: 0; bottom: 0;
-    right: 24px;
+    right: 22px;
     border-radius: 10px;
     transition: all 0.1s ease-in 0s;
 }
