@@ -1,6 +1,5 @@
 .onoffswitch {
-    position: relative; width: 40px;
-    margin-top: 5px;
+    position: relative; width: 43px;
     -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
@@ -8,28 +7,46 @@
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    height: 13px; padding: 0; line-height: 13px;
-    border: 0px solid #FFFFFF; border-radius: 20px;
-    background-color: #42A5F5;
+    border: 2px solid #999999; border-radius: 10px;
 }
-.onoffswitch-label:before {
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 17px; padding: 0; line-height: 17px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
     content: "";
-    display: block; width: 20px; margin: -3.5px;
-    background: #2196F6;
+    padding-left: 10px;
+    background-color: #21304A; color: #5A9EEE;
+}
+.onoffswitch-inner:after {
+    content: "";
+    padding-right: 10px;
+    background-color: #21304A; color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 14px; margin: 2px;
+    background: #5A9EEE;
     position: absolute; top: 0; bottom: 0;
-    right: 23px;
-    border-radius: 20px;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label {
-    background-color: #42A5F5;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-   border-color: #42A5F5;
+    right: 24px;
+    border-radius: 10px;
+    transition: all 0.1s ease-in 0s;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
-.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px;
-    background-color: #2196F3;
+    background-color: #5A9EEE;
+}
+.selected {
+  color: #5695E0;
+}
+.idle{
+  color: white;
 }

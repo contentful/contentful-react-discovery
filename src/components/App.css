@@ -62,3 +62,9 @@
 .app-container .requests-link{
   margin-left: -130px;
 }
+.hidden {
+  display: none;
+}
+.displayed {
+  display: flex;
+}
