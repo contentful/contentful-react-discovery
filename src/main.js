@@ -91,7 +91,8 @@ function credentialsAreDifferent (credentials, newCredentials) {
 function initializeClient (newCredentials, next, replace) {
   initClient(newCredentials.space, newCredentials.accessToken, newCredentials.preview)
   .then(
-    () => {
+    (space) => {
+      console.log(space)
       credentials = newCredentials
       next()
     },

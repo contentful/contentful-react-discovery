@@ -18,6 +18,9 @@
   background: #192532;
   font-size: 0.92em;
 }
+.app-container nav ul {
+  color: white;
+}
 .app-container nav ul li.selected{
   color: white;
 }

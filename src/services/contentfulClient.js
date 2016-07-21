@@ -2,7 +2,7 @@ import {createClient} from 'contentful'
 
 let client
 let authorized
-
+let currentSpace
 function initClient (space, accessToken, preview) {
   client = createClient({
     space: space,
@@ -10,9 +10,10 @@ function initClient (space, accessToken, preview) {
     host: preview ? 'preview.contentful.com' : 'cdn.contentful.com'
   })
   return client.getSpace()
-  .then(() => {
+  .then((space) => {
     authorized = true
-    return authorized
+    currentSpace = space
+    return space
   })
 }
 
@@ -20,6 +21,9 @@ function getClient () {
   return authorized && client
 }
 
+function getCurrentSpaceName () {
+  return (currentSpace && currentSpace.name) ? currentSpace.name : ''
+}
 function resetClient () {
   window.sessionStorage.clear()
   authorized = false
@@ -28,5 +32,6 @@ function resetClient () {
 export {
   initClient,
   getClient,
-  resetClient
+  resetClient,
+  getCurrentSpaceName
 }
