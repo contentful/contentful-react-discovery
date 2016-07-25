@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react'
 import SettingsForm from './SettingsForm'
 import {resetClient} from '../../services/contentfulClient'
 import isPreviewSetInQuery from '../../utils/is-preview-set-in-query'
-import ApiStore from '../../stores/ApiStore'
 
 export default class SettingsContainer extends React.Component {
   constructor (props) {
@@ -32,9 +31,6 @@ export default class SettingsContainer extends React.Component {
       delivery_access_token: this.state.deliveryAccessToken,
       preview: this.props.api.selectedApi === 'preview',
       space_id: this.state.space
-    }
-    if (this.previewSelected()) {
-      query.preview = true
     }
     this.context.router.push({
       pathname: '/entries/by-content-type',
@@ -73,11 +69,9 @@ export default class SettingsContainer extends React.Component {
       })
     }
   }
-
   previewSelected () {
-    return ApiStore.get('isPreview')
+    return this.props.api.selectedApi === 'preview'
   }
-
   render () {
     return <SettingsForm
       space={this.state.space}
