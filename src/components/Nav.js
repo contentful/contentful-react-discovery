@@ -6,7 +6,7 @@ export default class Nav extends React.Component {
     const q = this.props.location.query
     return (
       <ul>
-        <li>{getCurrentSpaceName()} <Link to={{pathname: '/', query: q}}>[Change]</Link></li>
+        <li>Space: {getCurrentSpaceName()} [<Link to={{pathname: '/', query: q}}>Change</Link>]</li>
         <li><Link to={{pathname: '/entries', query: q}}>Entries</Link></li>
         <li><Link to={{pathname: '/assets', query: q}}>Assets</Link></li>
       </ul>
