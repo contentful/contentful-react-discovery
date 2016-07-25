@@ -6,10 +6,13 @@ import styles from './Asset.css'
 import Thumbnail from './Thumbnail'
 
 function Asset ({asset}) {
+  const {width, height} = asset.fields.file.details.image
+  const imageWidth = width > '640' ? '640' : width
+  const imageHeight = height > '480' ? '480' : height
   return <div styleName='asset-container'>
     <div styleName='preview'>
       <a href={`${asset.fields.file.url}`} target='_blank'>
-        <Thumbnail url={asset.fields.file.url} fileName={asset.fields.file.fileName} size='500' />
+        <Thumbnail url={asset.fields.file.url} fileName={asset.fields.file.fileName} width={imageWidth} height={imageHeight} />
       </a>
     </div>
     <div styleName='metadata'>
