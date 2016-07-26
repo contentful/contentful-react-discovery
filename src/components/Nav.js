@@ -8,7 +8,7 @@ export default class Nav extends React.Component {
       <ul>
         <li>Space: {getCurrentSpaceName()} [<Link to={{pathname: '/', query: q}}>Change</Link>]</li>
         <li><Link to={{pathname: '/entries', query: q}}>Entries</Link></li>
-        <li><Link to={{pathname: '/assets', query: q}}>Assets</Link></li>
+        <li><Link to={{pathname: '/assets', query: q}}>Media Library</Link></li>
       </ul>
       )
   }
