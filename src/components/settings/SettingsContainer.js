@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import SettingsForm from './SettingsForm'
-import {resetClient} from '../../services/contentfulClient'
+import { resetClient } from '../../services/contentfulClient'
 import isPreviewSetInQuery from '../../utils/is-preview-set-in-query'
 
 export default class SettingsContainer extends React.Component {
@@ -74,15 +74,14 @@ export default class SettingsContainer extends React.Component {
   }
   render () {
     return <SettingsForm
-      space={this.state.space}
-      selectedAccessToken={this.previewSelected() ? this.state.previewAccessToken : this.state.deliveryAccessToken}
-      deliveryAccessToken={this.state.deliveryAccessToken}
-      previewAccessToken={this.state.previewAccessToken}
-      selectedApi={this.state.selectedApi}
-      handleChange={this.handleChange.bind(this)}
-      loadSpace={this.loadSpace.bind(this)}
-      validationError={this.state.validationError}
-      />
+             space={this.state.space}
+             selectedAccessToken={this.previewSelected() ? this.state.previewAccessToken : this.state.deliveryAccessToken}
+             deliveryAccessToken={this.state.deliveryAccessToken}
+             previewAccessToken={this.state.previewAccessToken}
+             selectedApi={this.state.selectedApi}
+             handleChange={this.handleChange.bind(this)}
+             loadSpace={this.loadSpace.bind(this)}
+             validationError={this.state.validationError} />
   }
 }
 SettingsContainer.contextTypes = {
