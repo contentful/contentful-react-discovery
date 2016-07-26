@@ -1,7 +1,7 @@
 import React from 'react'
-import {render} from 'react-dom'
-import {Router, Route, IndexRoute, Redirect} from 'react-router'
-import {initClient, getClient} from './services/contentfulClient'
+import { render } from 'react-dom'
+import { Router, Route, IndexRoute, Redirect } from 'react-router'
+import { initClient, getClient } from './services/contentfulClient'
 import Main from './components/Main'
 import SettingsContainer from './components/settings/SettingsContainer'
 import ContentTypesContainer from './components/content-types/ContentTypesContainer'
@@ -14,9 +14,9 @@ import Requests from './components/requests/Requests'
 import Error from './components/Error'
 import NoMatch from './components/NoMatch'
 import isPreviewSetInQuery from './utils/is-preview-set-in-query'
-import {Provider} from 'react-redux'
-import {store, history} from './store'
-import {resetClient} from './services/contentfulClient'
+import { Provider } from 'react-redux'
+import { store, history } from './store'
+import { resetClient } from './services/contentfulClient'
 
 let credentials = {
   accessToken: '',
@@ -24,25 +24,25 @@ let credentials = {
 }
 
 const router = ((
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path='/' component={Main}>
-        <IndexRoute component={SettingsContainer} />
-        <Route path='entries/by-content-type' component={ContentTypesContainer} onEnter={requireCredentials}/>
-        <Route path='requests' component={Requests} onEnter={requireCredentials}>
-          <Route path=':requestId' component={Request} onEnter={requireCredentials}/>
-        </Route>
-        <Route path='entries/by-content-type/:contentTypeId' component={EntriesContainer} onEnter={requireCredentials}>
-          <Route path=':entryId' component={Entry} onEnter={requireCredentials}/>
-        </Route>
-        <Redirect from='entries' to='entries/by-content-type'/>
-        <Route path='assets' component={AssetsContainer} onEnter={requireCredentials}/>
-        <Route path='assets/:assetId' component={AssetContainer} onEnter={requireCredentials}/>
-        <Route path='error' component={Error}/>
-        <Route path='*' component={NoMatch}/>
+<Provider store={store}>
+  <Router history={history}>
+    <Route path='/' component={Main}>
+      <IndexRoute component={SettingsContainer} />
+      <Route path='entries/by-content-type' component={ContentTypesContainer} onEnter={requireCredentials} />
+      <Route path='requests' component={Requests} onEnter={requireCredentials}>
+        <Route path=':requestId' component={Request} onEnter={requireCredentials} />
       </Route>
-    </Router>
-  </Provider>
+      <Route path='entries/by-content-type/:contentTypeId' component={EntriesContainer} onEnter={requireCredentials}>
+        <Route path=':entryId' component={Entry} onEnter={requireCredentials} />
+      </Route>
+      <Redirect from='entries' to='entries/by-content-type' />
+      <Route path='assets' component={AssetsContainer} onEnter={requireCredentials} />
+      <Route path='assets/:assetId' component={AssetContainer} onEnter={requireCredentials} />
+      <Route path='error' component={Error} />
+      <Route path='*' component={NoMatch} />
+    </Route>
+  </Router>
+</Provider>
 ))
 
 render(router, document.getElementsByTagName('main')[0])
@@ -79,8 +79,8 @@ function credentialsExist (credentials) {
 
 function credentialsAreDifferent (credentials, newCredentials) {
   return !(
-    credentials.accessToken === newCredentials.accessToken &&
-    credentials.space === newCredentials.space
+  credentials.accessToken === newCredentials.accessToken &&
+  credentials.space === newCredentials.space
   )
 }
 
@@ -88,22 +88,23 @@ function credentialsAreDifferent (credentials, newCredentials) {
  * Initializes the client and proceeds to the actual route.
  * In case of failure redirects to error page with message
  */
+
 function initializeClient (newCredentials, next, replace) {
   initClient(newCredentials.space, newCredentials.accessToken, newCredentials.preview)
-  .then(
-    (space) => {
-      console.log(space)
-      credentials = newCredentials
-      next()
-    },
-    (err) => {
-      replace({
-        pathname: '/error',
-        state: {
-          message: err.message
-        }
-      })
-      next()
-    }
+    .then(
+      (space) => {
+        console.log(space)
+        credentials = newCredentials
+        next()
+      },
+      (err) => {
+        replace({
+          pathname: '/error',
+          state: {
+            message: err.message
+          }
+        })
+        next()
+      }
   )
 }

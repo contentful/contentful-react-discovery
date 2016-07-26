@@ -1,10 +1,10 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import CSSModules from 'react-css-modules'
 import styles from './App.css'
 import Nav from './Nav'
 import NotificationLink from './NotificationLink'
 import ToggleButton from './ToggleButton'
-import {getClient} from '../services/contentfulClient'
+import { getClient } from '../services/contentfulClient'
 
 class App extends React.Component {
   handleChange (isPreview) {
@@ -31,29 +31,23 @@ class App extends React.Component {
       <div styleName='app-container'>
         <nav>
           <div styleName='nav-container'>
-
             <div styleName='logo'>
-              <img src='./contentful_logo_120x90@2x.png' height='32'/>
+              <img src='/contentful_logo_120x90@2x.png' height='32' />
               <span>Discovery App</span>
             </div>
-
             <div styleName={this.shouldDisplay()}>
               <Nav location={this.props.location} />
             </div>
-
             <div styleName={this.shouldDisplay()}>
-              <NotificationLink count={this.props.requests.length}
-                styleName='requests-link' label='API Requests'
-                to={{pathname: '/requests',
-                query: this.props.location.query}}/>
+              <NotificationLink
+                count={this.props.requests.length}
+                styleName='requests-link'
+                label='API Requests'
+                to={{pathname: '/requests', query: this.props.location.query}} />
             </div>
-
             <div styleName={this.shouldDisplay()}>
-              <ToggleButton unCheckedLabel='Delivery API Key'
-                checkedLabel='Preview API Key'
-                changeHandler={this.handleChange.bind(this)}/>
+              <ToggleButton unCheckedLabel='Delivery API Key' checkedLabel='Preview API Key' changeHandler={this.handleChange.bind(this)} />
             </div>
-
           </div>
         </nav>
         <div styleName='content-container'>

@@ -5,7 +5,8 @@ module.exports = {
   entry: './main.js',
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    publicPath: '/'
   },
   devtool: 'source-map',
   module: {
@@ -24,7 +25,7 @@ module.exports = {
       },
       { test: /\.jpe?g$|\.svg$|\.png$/,
         exclude: /node_modules/,
-        loader: "file-loader?name=[path][name].[ext]"
+        loader: 'file-loader?name=[path][name].[ext]'
       }
     ]
   },
