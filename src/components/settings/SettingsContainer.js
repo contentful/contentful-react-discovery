@@ -31,10 +31,10 @@ export default class SettingsContainer extends React.Component {
       preview: this.previewSelected(),
       space_id: this.state.space
     }
-
-    if (this.state.previewAccessToken) {
+    const {previewAccessToken, deliveryAccessToken} = this.state
+    if (previewAccessToken && !deliveryAccessToken) {
       query.preview = true
-    } else if (this.state.deliveryAccessToken) {
+    } else if (deliveryAccessToken && !previewAccessToken) {
       query.preview = false
     }
 

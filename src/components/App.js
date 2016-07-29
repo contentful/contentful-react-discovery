@@ -50,7 +50,8 @@ class App extends React.Component {
                 checked={this.props.api.selectedApi === 'preview'}
                 unCheckedLabel='Delivery API Key'
                 checkedLabel='Preview API Key'
-                changeHandler={this.handleChange.bind(this)} />
+                changeHandler={this.handleChange.bind(this)}
+                disabled={!this.props.api.previewAccessToken || !this.props.api.deliveryAccessToken} />
             </div>
           </div>
         </nav>
