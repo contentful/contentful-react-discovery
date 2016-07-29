@@ -15,6 +15,7 @@ export default class SettingsContainer extends React.Component {
       validationError: null
     }
   }
+
   loadSpace (event) {
     event.preventDefault()
     if (!this.state.space) {
@@ -84,6 +85,7 @@ export default class SettingsContainer extends React.Component {
              validationError={this.state.validationError} />
   }
 }
+
 SettingsContainer.contextTypes = {
   router: PropTypes.object.isRequired
 }

@@ -4,6 +4,7 @@ import Tabs from '../tabs/Tabs'
 import Pane from '../tabs/Pane'
 import styles from './Request.css'
 import CSSModules from 'react-css-modules'
+
 function Request ({request, location}) {
   function parseUrl (urlWithParams) {
     const urlSections = urlWithParams.split('?')
@@ -40,4 +41,5 @@ function Request ({request, location}) {
     </div>
   )
 }
+
 export default CSSModules(Request, styles)

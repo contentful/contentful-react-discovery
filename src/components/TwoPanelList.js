@@ -7,16 +7,16 @@ function TwoPanelList ({items, ContentView, location}) {
   const lists = items.map((topItem, index) => {
     const list = topItem.items.map((innerItem, innerIndex) => {
       return <topItem.ListView
-        key={innerItem.sys ? innerItem.sys.id : innerIndex}
-        i={innerIndex}
-        item={innerItem}
-        location={location} />
+               key={innerItem.sys ? innerItem.sys.id : innerIndex}
+               i={innerIndex}
+               item={innerItem}
+               location={location} />
     })
     return <List
-      key={index}
-      TitleView={topItem.TitleView}
-      list={list}
-      ListActionView={topItem.ListActionView} />
+             key={index}
+             TitleView={topItem.TitleView}
+             list={list}
+             ListActionView={topItem.ListActionView} />
   })
   return (
     <div styleName='two-panel-list'>
@@ -38,7 +38,9 @@ export default CSSModules(TwoPanelList, styles)
 
 export const Placeholder = CSSModules(({content}) => {
   return <div styleName='placeholder'>
-    <img src='../../contentful_logo_120x90@2x.png' />
-    <p>{content}</p>
-  </div>
+           <img src='../../contentful_logo_120x90@2x.png' />
+           <p>
+             {content}
+           </p>
+         </div>
 }, styles)

@@ -1,7 +1,7 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import CSSModules from 'react-css-modules'
 import styles from './NotificationLink.css'
-import {Link} from 'react-router'
+import { Link } from 'react-router'
 
 class NotificationLink extends React.Component {
   render () {
@@ -10,11 +10,14 @@ class NotificationLink extends React.Component {
         <div styleName='counter'>
           <span styleName='badge'>{this.props.count}</span>
         </div>
-        <Link to={this.props.to}>{this.props.label}</Link>
+        <Link to={this.props.to}>
+        {this.props.label}
+        </Link>
       </div>
     )
   }
 }
+
 NotificationLink.propTypes = {
   label: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
