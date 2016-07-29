@@ -1,6 +1,6 @@
 import * as contentTypeServie from '../services/contentTypeStore'
 import * as entriesService from '../services/entriesStore'
-import {store} from '../store'
+import { store } from '../store'
 import axios from 'axios'
 
 // since we are using promises already we can make redux-promise-middlware create
@@ -21,8 +21,7 @@ export function getContentTypes () {
 export function toggleAPIMode (isPreview) {
   return {
     type: 'TOGGLE_API_PREVIEW',
-    isPreview
-  }
+  isPreview}
 }
 
 export function loadEntries (entries, {entryId, contentTypeId, contentTypeChanged} = {}) {
@@ -49,9 +48,8 @@ export function appendRequest (url, path, payload) {
         parsedPayload: payload,
         rawPayload: response.data,
         path: shortenPath(path),
-        time: new Date().toTimeString().split(' ')[0], // take only the time part
-        url
-      }
+        time: new Date().toLocaleTimeString(undefined, {hour12: false}),
+      url}
     })
   }
 }
