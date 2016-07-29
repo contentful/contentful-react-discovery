@@ -46,7 +46,11 @@ class App extends React.Component {
                 to={{pathname: '/requests', query: this.props.location.query}} />
             </div>
             <div styleName={this.shouldDisplay()}>
-              <ToggleButton unCheckedLabel='Delivery API Key' checkedLabel='Preview API Key' changeHandler={this.handleChange.bind(this)} />
+              <ToggleButton
+                checked={this.props.api.selectedApi === 'preview'}
+                unCheckedLabel='Delivery API Key'
+                checkedLabel='Preview API Key'
+                changeHandler={this.handleChange.bind(this)} />
             </div>
           </div>
         </nav>

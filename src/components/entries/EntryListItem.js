@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import {current} from '../List.css'
+import { current } from '../List.css'
 
 export default function EntryListItem ({item, location}) {
   const contentType = item.sys.contentType
@@ -14,7 +14,7 @@ export default function EntryListItem ({item, location}) {
   return (
     <li className={getClassIfCurrentlySelected()}>
       <Link to={{pathname: `/entries/by-content-type/${contentType.sys.id}/${item.sys.id}`, query: location.query}}>
-        {item.fields[contentType.displayField]}
+      {item.fields[contentType.displayField] || 'No Content'}
       </Link>
     </li>
   )

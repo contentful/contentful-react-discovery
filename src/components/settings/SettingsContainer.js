@@ -20,19 +20,24 @@ export default class SettingsContainer extends React.Component {
     event.preventDefault()
     if (!this.state.space) {
       return this.showError('You need to provide a Space ID')
-    } else if (this.previewSelected() && !this.state.previewAccessToken) {
-      return this.showError('You need to provide a Preview API Access Token if you want to use the Preview API')
-    } else if (!this.previewSelected() && !this.state.deliveryAccessToken) {
-      return this.showError('You need to provide a Delivery API Access Token if you want to use the Delivery API')
+    } else if (!this.state.previewAccessToken && !this.state.deliveryAccessToken) {
+      return this.showError('You need to provide a at least one Access Token for Delivery or Preview API')
     }
     resetClient()
     this.props.resetRequests()
     const query = {
       preview_access_token: this.state.previewAccessToken,
       delivery_access_token: this.state.deliveryAccessToken,
-      preview: this.props.api.selectedApi === 'preview',
+      preview: this.previewSelected(),
       space_id: this.state.space
     }
+
+    if (this.state.previewAccessToken) {
+      query.preview = true
+    } else if (this.state.deliveryAccessToken) {
+      query.preview = false
+    }
+
     this.context.router.push({
       pathname: '/entries/by-content-type',
       query: query

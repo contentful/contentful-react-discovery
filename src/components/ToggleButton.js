@@ -5,7 +5,7 @@ import getID from '../utils/getID'
 
 class ToggleButton extends React.Component {
   componentWillMount () {
-    this.state = {isChecked: this.props.preview === 'true'}
+    this.state = {isChecked: this.props.checked}
     this.onChange = this.onChange.bind(this)
     this.toggleId = getID()
   }
@@ -14,6 +14,11 @@ class ToggleButton extends React.Component {
       return 'selected'
     }
     return 'idle'
+  }
+  componentWillReceiveProps (nextProps) {
+    if (this.props.checked !== nextProps.checked) {
+      this.setState({isChecked: nextProps.checked })
+    }
   }
   onChange (e) {
     let nextVal = !this.state.isChecked
@@ -54,7 +59,8 @@ class ToggleButton extends React.Component {
 ToggleButton.propTypes = {
   changeHandler: PropTypes.func,
   unCheckedLabel: PropTypes.string.isRequired,
-  checkedLabel: PropTypes.string.isRequired
+  checkedLabel: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired
 }
 
 export default CSSModules(ToggleButton, styles)

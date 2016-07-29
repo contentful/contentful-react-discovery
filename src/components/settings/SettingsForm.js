@@ -71,7 +71,7 @@ class SettingsForm extends React.Component {
                 id='deliveryAccessToken'
                 type='text'
                 defaultValue={this.props.deliveryAccessToken}
-                onChange={this.props.handlesChange} />
+                onChange={this.props.handleChange} />
             </div>
             <div>
               <label htmlFor='previewAccessToken' styleName='label-title'>
