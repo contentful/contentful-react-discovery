@@ -1,13 +1,13 @@
 .list {
   width: 250px;
-  height: 90%;
-  height: 90vh;
+  height: 100%;
+  height:100vh;
   border-left: 1px solid #CAD5DA;
 }
 
 .list-container {
   margin-top: 10px;
-  height: 100%;
+  height: 94%;
   overflow: auto;
   padding-right: 5px;
 }

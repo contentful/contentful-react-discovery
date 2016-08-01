@@ -1,9 +1,10 @@
 .two-panel-list {
   display: flex;
   border-left: 1px solid #CAD5DA;
+	border-bottom : 1px solid #CAD5DA;
 }
 .list-item-contents {
-  padding:40px 50px 0 50px;
+  padding:40px 5px 0 35px;
   width: 750px;
   min-height: 300px;
   position: relative;

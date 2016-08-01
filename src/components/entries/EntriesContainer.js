@@ -37,10 +37,6 @@ export default createClass({
       return <p>
                Loading your Entries....
              </p>
-    } else if (entries.payload.len() === 0) {
-      return <p>
-               No entries are available.
-             </p>
     }
     let contentElement, loadMoreElement
     const contentTypeListTitle = <h3>Content Types</h3>
@@ -54,9 +50,6 @@ export default createClass({
     if (entries.payload.len() < entries.total) {
       loadMoreElement = <FeaturelessButton label='Load more' action={this.loadEntries} />
     }
-		return <TwoPanelList items={[{items: this.props.contentTypes.payload, TitleView: contentTypeListTitle, ListView: ContentTypeListItem}, 
-																{items: entries.payload.value, TitleView: entriesListTitle, ListView: EntryListItem}]} 
-												 ContentView={contentElement} 
-												 location={this.props.location} />
+    return <TwoPanelList items={[{items: this.props.contentTypes.payload, TitleView: contentTypeListTitle, ListView: ContentTypeListItem}, {items: entries.payload.value, TitleView: entriesListTitle, ListView: EntryListItem}]} ContentView={contentElement} location={this.props.location} />
   }
 })
