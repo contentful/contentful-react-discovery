@@ -8,7 +8,6 @@ export default class Nav extends React.Component {
     return (
       <ul>
         <li>
-          Space:
           {getCurrentSpaceName()} [
           <Link to={{pathname: '/', query: q}}> Change
           </Link>]

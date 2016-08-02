@@ -5,11 +5,14 @@ import Entry from './Entry'
 import FeaturelessButton from '../FeaturelessButton'
 import ContentTypeListItem from '../content-types/ContentTypeListItem'
 
+let currentContentTypeID;
 export default createClass({
-  componentDidMount() {
+	componentDidMount() {
+		const {contentTypeID} = this.props
     this.props.loadEntries(this.props.entries, {entryId: this.props.params.entryId,
-      contentTypeId: this.props.params.contentTypeId,
-    contentTypeChanged: true})
+      contentTypeId:contentTypeID,
+			contentTypeChanged: currentContentTypeID !== contentTypeID })	
+		currentContentTypeID = contentTypeID
   },
 
   componentWillReceiveProps(nextProps) {
