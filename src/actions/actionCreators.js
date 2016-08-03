@@ -2,6 +2,7 @@ import * as contentTypeServie from '../services/contentTypeStore'
 import * as entriesService from '../services/entriesStore'
 import { store } from '../store'
 import axios from 'axios'
+import { longNameShort } from '../utils/long-name-short.js'
 
 // since we are using promises already we can make redux-promise-middlware create
 // so actions automatically for us so if we pass in a promise in the payload ti will
@@ -48,20 +49,13 @@ export function appendRequest (url, path, payload) {
       return {
         parsedPayload: payload,
         rawPayload: response.data,
-        path: shortenPath(path),
+        path: longNameShort(path, 20) ,
         time: new Date().toLocaleTimeString(undefined, {hour12: false}),
       url}
     })
   }
 }
-function shortenPath (path) {
-  path = path.substring(0, path.indexOf('?'))
-  if (path.length > 20) {
-    path = path.substring(0, 17)
-    path += '...'
-  }
-  return path
-}
+
 function getRawRequestUrl (path) {
   const {space, selectedApi} = store.getState().api
   const accessToken = selectedApi === 'preview' ? store.getState().api.previewAccessToken : store.getState().api.deliveryAccessToken

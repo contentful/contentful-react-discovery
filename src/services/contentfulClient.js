@@ -24,10 +24,6 @@ function getClient () {
 
 function getCurrentSpaceName () {
   let currentSpaceName = (currentSpace && currentSpace.name) ? currentSpace.name : ''
-  if (currentSpaceName.length > 13) {
-    currentSpaceName = currentSpaceName.substring(0, 10)
-    currentSpaceName += '...'
-  }
   return currentSpaceName
 }
 

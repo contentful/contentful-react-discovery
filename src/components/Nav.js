@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import { getCurrentSpaceName } from '../services/contentfulClient'
+import { longNameShort } from '../utils/long-name-short.js'
 
 export default class Nav extends React.Component {
   render () {
@@ -8,7 +9,7 @@ export default class Nav extends React.Component {
     return (
       <ul>
         <li>
-          {getCurrentSpaceName()} [
+          {longNameShort(getCurrentSpaceName(), 13)} [
           <Link to={{pathname: '/', query: q}}> Change
           </Link>]
         </li>
