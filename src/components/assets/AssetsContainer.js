@@ -1,4 +1,4 @@
-import React, { createClass } from 'react'
+import React from 'react'
 import { getClient } from '../../services/contentfulClient'
 import Assets from './Assets'
 import Search from './Search'
@@ -6,15 +6,16 @@ import styles from './AssetsContainer.css'
 import CSSModules from 'react-css-modules'
 import update from 'react-addons-update'
 
-const AssetsContainer = createClass({
-  getInitialState() {
-    return {
-      assets: {},
-      phase: 'loading'
-    }
-  },
+class AssetsContainer extends React.Component{
+	constructor () {
+		super()
+		this.state =  {
+		    assets: {},
+			  phase: 'loading'
+		 }
+  }
 
-  componentDidMount() {
+  componentDidMount () {
     getClient().getAssets()
       .then((assets) => {
         this.initialAssets = assets.toPlainObject()
@@ -23,9 +24,9 @@ const AssetsContainer = createClass({
           phase: 'loaded'
         })
       })
-  },
+  }
 
-  onChangeHandler(filter) {
+  onChangeHandler (filter) {
     filter = filter.trim().toLowerCase()
     const newItems = this.initialAssets.items.filter((asset) => {
       return asset.fields.title.trim().toLowerCase().match(filter)
@@ -38,9 +39,9 @@ const AssetsContainer = createClass({
       }
     })
     this.setState(newState)
-  },
+  }
 
-  render() {
+  render () {
     if (this.state.phase === 'loading') {
       return <div>
                <p>
@@ -59,6 +60,6 @@ const AssetsContainer = createClass({
              <Assets items={this.state.assets.items} location={this.props.location} />
            </div>
   }
-})
+}
 
 export default CSSModules(AssetsContainer, styles)
