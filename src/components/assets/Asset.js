@@ -11,7 +11,7 @@ function Asset ({asset}) {
   const imageHeight = height > '480' ? '480' : height
   return <div styleName='asset-container'>
            <div styleName='preview'>
-             <a href={`${asset.fields.file.url}`} target='_blank'>
+             <a href={`${asset.fields.file.url}`} rel='noopener' target='_blank'>
                <Thumbnail
                  url={asset.fields.file.url}
                  fileName={asset.fields.file.fileName}

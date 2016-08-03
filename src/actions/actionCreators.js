@@ -21,7 +21,8 @@ export function getContentTypes () {
 export function toggleAPIMode (isPreview) {
   return {
     type: 'TOGGLE_API_PREVIEW',
-  isPreview}
+		isPreview
+	}
 }
 
 export function loadEntries (entries, {entryId, contentTypeId, contentTypeChanged} = {}) {
