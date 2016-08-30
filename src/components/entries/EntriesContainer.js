@@ -8,11 +8,11 @@ import ContentTypeListItem from '../content-types/ContentTypeListItem'
 let currentContentTypeID;
 export default createClass({
 	componentDidMount() {
-		const {contentTypeID} = this.props
+		const {contentTypeId} = this.props.params
     this.props.loadEntries(this.props.entries, {entryId: this.props.params.entryId,
-      contentTypeId:contentTypeID,
-			contentTypeChanged: currentContentTypeID !== contentTypeID })	
-		currentContentTypeID = contentTypeID
+      contentTypeId:contentTypeId,
+			contentTypeChanged: currentContentTypeID !== contentTypeId })	
+		currentContentTypeID = contentTypeId
   },
 
   componentWillReceiveProps(nextProps) {
@@ -32,7 +32,8 @@ export default createClass({
     const {params} = this.props
     this.props.loadEntries(this.props.entries, {entryId: params.entryId,
       contentTypeId: params.contentTypeId,
-    contentTypeChanged: false})
+			contentTypeChanged: currentContentTypeID === params.contentTypeId })
+		currentContentTypeID = params.contentTypeId 
   },
   render() {
     const {entries} = this.props
