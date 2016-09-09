@@ -29,15 +29,15 @@ function SettingsForm ({
             <a href='#'>Where do I find Space ID and Production API Key</a>
           </div>
           <div>
-            <label for='space' styleName='label-title'>Space ID</label>
+            <label htmlFor='space' styleName='label-title'>Space ID</label>
             <input styleName='spaceInput' id='space' type='text' value={space} onChange={handleChange}/>
           </div>
           <div>
-            <label for='deliveryAccessToken' styleName='label-title'>Production API key</label>
+            <label htmlFor='deliveryAccessToken' styleName='label-title'>Production API key</label>
             <input id='deliveryAccessToken' type='text' value={deliveryAccessToken} onChange={handleChange}/>
           </div>
           <div>
-            <label for='deliveryAccessToken' styleName='label-title'>Preview API key</label>
+            <label htmlFor='deliveryAccessToken' styleName='label-title'>Preview API key</label>
             <input id='deliveryAccessToken' type='text' value={previewAccessToken} onChange={handleChange}/>
           </div>
           <button type='submit'>Load Space</button>
