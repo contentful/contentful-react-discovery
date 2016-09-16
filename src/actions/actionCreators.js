@@ -22,8 +22,8 @@ export function getContentTypes () {
 export function toggleAPIMode (isPreview) {
   return {
     type: 'TOGGLE_API_PREVIEW',
-		isPreview
-	}
+    isPreview
+  }
 }
 
 export function loadEntries (entries, {entryId, contentTypeId, contentTypeChanged} = {}) {
@@ -49,9 +49,10 @@ export function appendRequest (url, path, payload) {
       return {
         parsedPayload: payload,
         rawPayload: response.data,
-        path: longNameShort(path, 20) ,
-        time: new Date().toLocaleTimeString(undefined, {hour12: false}),
-      url}
+        path: longNameShort(path, 20),
+        time: new Date().toLocaleTimeString(undefined, {hour12: false}).split(' ')[0],
+        url
+      }
     })
   }
 }
