@@ -2,4 +2,5 @@ dist
 node_modules
 gh-page
 *.swp
+*.swo
 *.log

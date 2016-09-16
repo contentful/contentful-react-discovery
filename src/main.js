@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute, Redirect } from 'react-router'
-import { initClient, getClient } from './services/contentfulClient'
+import { initClient, getClient, resetClient } from './services/contentfulClient'
 import Main from './components/Main'
 import SettingsContainer from './components/settings/SettingsContainer'
 import ContentTypesContainer from './components/content-types/ContentTypesContainer'
@@ -16,7 +16,6 @@ import NoMatch from './components/NoMatch'
 import isPreviewSetInQuery from './utils/is-preview-set-in-query'
 import { Provider } from 'react-redux'
 import { store, history } from './store'
-import { resetClient } from './services/contentfulClient'
 
 let credentials = {
   accessToken: '',
@@ -24,25 +23,25 @@ let credentials = {
 }
 
 const router = ((
-<Provider store={store}>
-  <Router history={history}>
-    <Route path='/' component={Main}>
-      <IndexRoute component={SettingsContainer} />
-      <Route path='entries/by-content-type' component={ContentTypesContainer} onEnter={requireCredentials} />
-      <Route path='requests' component={Requests} onEnter={requireCredentials}>
-        <Route path=':requestId' component={Request} onEnter={requireCredentials} />
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path='/' component={Main}>
+        <IndexRoute component={SettingsContainer} />
+        <Route path='entries/by-content-type' component={ContentTypesContainer} onEnter={requireCredentials} />
+        <Route path='requests' component={Requests} onEnter={requireCredentials}>
+          <Route path=':requestId' component={Request} onEnter={requireCredentials} />
+        </Route>
+        <Route path='entries/by-content-type/:contentTypeId' component={EntriesContainer} onEnter={requireCredentials}>
+          <Route path=':entryId' component={Entry} onEnter={requireCredentials} />
+        </Route>
+        <Redirect from='entries' to='entries/by-content-type' />
+        <Route path='assets' component={AssetsContainer} onEnter={requireCredentials} />
+        <Route path='assets/:assetId' component={AssetContainer} onEnter={requireCredentials} />
+        <Route path='error' component={Error} />
+        <Route path='*' component={NoMatch} />
       </Route>
-      <Route path='entries/by-content-type/:contentTypeId' component={EntriesContainer} onEnter={requireCredentials}>
-        <Route path=':entryId' component={Entry} onEnter={requireCredentials} />
-      </Route>
-      <Redirect from='entries' to='entries/by-content-type' />
-      <Route path='assets' component={AssetsContainer} onEnter={requireCredentials} />
-      <Route path='assets/:assetId' component={AssetContainer} onEnter={requireCredentials} />
-      <Route path='error' component={Error} />
-      <Route path='*' component={NoMatch} />
-    </Route>
-  </Router>
-</Provider>
+    </Router>
+  </Provider>
 ))
 
 render(router, document.getElementsByTagName('main')[0])
