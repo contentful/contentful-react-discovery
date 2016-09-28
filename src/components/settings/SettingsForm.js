@@ -15,13 +15,12 @@ class SettingsForm extends React.Component {
   toggleDetails (e) {
     e.preventDefault()
     const {detailsDisplay} = this.state
-    const newDetailsDisplay = {display: detailsDisplay.display === 'none' ? 'block' : 'none' }
+    const newDetailsDisplay = {display: detailsDisplay.display === 'none' ? 'block' : 'none'}
     this.setState({detailsDisplay: newDetailsDisplay})
   }
   render () {
     return (
       <div styleName='settings-container'>
-        <h3 styleName='settings-title'>Discovery App</h3>
         <form onSubmit={this.props.loadSpace} styleName='settings-form'>
           <div styleName='form-container'>
             <p styleName='error' style={this.props.errorDisplay}>
