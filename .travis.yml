@@ -1,0 +1,21 @@
+dist: trusty
+before_install:
+  - npm install -g npm@latest
+  - npm set progress=false
+language: node_js
+script: 
+  - npm install
+  - npm run build
+  - mkdir discovery_app
+  - cp *.svg *.png *.css dist/*.js discovery_app
+branches:
+  only:
+    - master
+    - redux
+deploy:
+  provider: s3
+  access_key_id : $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: "discovery.contentful.com"
+  acl: public_read
+  local_dir: discovery_app

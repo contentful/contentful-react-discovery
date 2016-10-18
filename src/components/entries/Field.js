@@ -31,7 +31,7 @@ function renderContent (content, definition, location) {
   } else if (type === 'Link' && linkType === 'Entry' && content.sys.type === 'Link') {
     return <p>Link to {content.sys.id} is missing.</p>
   } else if (type === 'Link' && linkType === 'Asset' && content.sys.type === 'Link') {
-    return <Thumbnail url='missing' fileName='Missing' description={`Link to ${content.sys.id} is missing.`}/>
+    return <Thumbnail url='missing' fileName='Missing' description={`Link to ${content.sys.id} is missing.`} />
   } else if (type === 'Array' && Array.isArray(content)) {
     return renderList(content, definition.items, location)
   } else if (type === 'Location' && isLocation(content)) {
@@ -43,7 +43,7 @@ function renderContent (content, definition, location) {
   } else if (type === 'Boolean') {
     return renderBoolean(content)
   } else if (type === 'Text') {
-    return <p dangerouslySetInnerHTML={renderMarkdown(content)}/>
+    return <p dangerouslySetInnerHTML={renderMarkdown(content)} />
   } else if (content.sys || content.fields) {
     return <div>
       <p>Error rendering field {definition.id} with content:</p>
@@ -61,7 +61,7 @@ function renderMarkdown (content) {
 }
 
 function renderEntryLink (content, location) {
-  return <EntryLinkContainer entryLink={content} location={location}/>
+  return <EntryLinkContainer entryLink={content} location={location} />
 }
 
 function renderAssetLink (content, location) {
