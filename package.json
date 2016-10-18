@@ -1,7 +1,7 @@
 {
   "name": "discovery-app-react",
   "version": "1.0.0",
-  "description": "A React.js based version of the Contentful Discovery app",
+  "description": "A React.js app of the Contentful Discovery app",
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --host=0.0.0.0 --port=9020 --inline --hot",
