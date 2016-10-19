@@ -9,8 +9,8 @@
     "build": "npm run clean && NODE_ENV=production BASE_PATH=discovery-app-react webpack -p",
     "publish": "npm run build && ./bin/publish.sh"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "contentful <opensource@contentful.com>",
+  "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.4",
@@ -51,5 +51,18 @@
   },
   "standard": {
     "parser": "babel-eslint"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/contentful/discovery-app-react.git"
+  },
+  "keywords": [
+    "react",
+    "contentful",
+    "discovery"
+  ],
+  "bugs": {
+    "url": "https://github.com/contentful/discovery-app-react/issues"
+  },
+  "homepage": "https://github.com/contentful/discovery-app-react#readme"
 }
