@@ -1,8 +1,9 @@
-dist: trusty
 before_install:
   - npm install -g npm@latest
   - npm set progress=false
 language: node_js
+node_js:
+  - "6.2"
 script: 
   - npm install
   - npm run build
