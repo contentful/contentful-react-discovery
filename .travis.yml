@@ -6,6 +6,7 @@ script:
   - npm run build
   - mkdir discovery_app
   - cp *.svg *.png *.css dist/*.js discovery_app
+  - cp index.html discovery_app/index.html
 deploy:
   provider: s3
   access_key_id : $AWS_ACCESS_KEY_ID
