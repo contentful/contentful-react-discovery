@@ -13,5 +13,6 @@ deploy:
   bucket: "discovery.contentful.com"
   acl: public_read
   local_dir: discovery_app
+  skip_cleanup: true
   on:
     branch: redux
