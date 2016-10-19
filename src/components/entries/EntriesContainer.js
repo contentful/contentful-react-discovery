@@ -5,17 +5,20 @@ import Entry from './Entry'
 import FeaturelessButton from '../FeaturelessButton'
 import ContentTypeListItem from '../content-types/ContentTypeListItem'
 
-let currentContentTypeID;
+let currentContentTypeID
 export default createClass({
-	componentDidMount() {
-		const {contentTypeId} = this.props.params
+  componentDidMount () {
+    const {contentTypeId} = this.props.params
+    if (this.props.contentTypes.payload.length === 0) {
+      this.props.getContentTypes()
+    }
     this.props.loadEntries(this.props.entries, {entryId: this.props.params.entryId,
-      contentTypeId:contentTypeId,
-			contentTypeChanged: currentContentTypeID !== contentTypeId })	
-		currentContentTypeID = contentTypeId
+      contentTypeId: contentTypeId,
+      contentTypeChanged: currentContentTypeID !== contentTypeId })
+    currentContentTypeID = contentTypeId
   },
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     const {params: currentParams} = this.props
     const {params: nextParams} = nextProps
     if (currentParams.entryId !== nextParams.entryId ||
@@ -28,19 +31,19 @@ export default createClass({
       })
     }
   },
-  loadEntries() {
+  loadEntries () {
     const {params} = this.props
     this.props.loadEntries(this.props.entries, {entryId: params.entryId,
       contentTypeId: params.contentTypeId,
-			contentTypeChanged: currentContentTypeID === params.contentTypeId })
-		currentContentTypeID = params.contentTypeId 
+      contentTypeChanged: currentContentTypeID === params.contentTypeId })
+    currentContentTypeID = params.contentTypeId
   },
-  render() {
+  render () {
     const {entries} = this.props
     if (entries.fetching === true) {
       return <p>
                Loading your Entries....
-             </p>
+      </p>
     }
     let contentElement, loadMoreElement
     const contentTypeListTitle = <h3>Content Types</h3>
