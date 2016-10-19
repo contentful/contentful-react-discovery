@@ -6,10 +6,6 @@ script:
   - npm run build
   - mkdir discovery_app
   - cp *.svg *.png *.css dist/*.js discovery_app
-branches:
-  only:
-    - master
-    - redux
 deploy:
   provider: s3
   access_key_id : $AWS_ACCESS_KEY_ID
@@ -17,3 +13,5 @@ deploy:
   bucket: "discovery.contentful.com"
   acl: public_read
   local_dir: discovery_app
+  on:
+    branch: redux
