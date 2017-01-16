@@ -4,7 +4,7 @@
 
 The Contentful Discover web app gives you a quick and easy way to preview your content on a web environment, and explore the contents of your Spaces.
 
-You can try out the app at https://contentful.github.io/discovery-app-react or you can check out the source code and suggest your own improvements.
+You can try out the app at https://discovery.contentful.com/ or you can check out the source code and suggest your own improvements.
 
 # Running it locally
 
