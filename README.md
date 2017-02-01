@@ -6,8 +6,44 @@ The Contentful Discover web app gives you a quick and easy way to preview your c
 
 You can try out the app at https://discovery.contentful.com/ or you can check out the source code and suggest your own improvements.
 
-# Running it locally
+# Running discovery-app locally
 
-`npm install`
+clone the project and `cd` to the directory
 
-`npm start`
+```shell
+git clone https://github.com/contentful/discovery-app-react
+```
+Install dependencies
+
+```shell
+npm install
+```
+Start the project
+
+```shell
+npm start
+```
+
+Open `http://0.0.0.0:9020` in your browser to see the app
+
+# Using Docker
+
+clone the project and `cd` to the directory
+
+```shell
+git clone https://github.com/contentful/discovery-app-react
+```
+
+Build the docker image
+
+```shell
+docker build -t discovery-app .  
+```
+
+Run the docker image
+
+```shell
+docker run -it --rm -p 9020:9020 discovery-app
+```
+
+Open `http://0.0.0.0:9020` in your browser to see the app
