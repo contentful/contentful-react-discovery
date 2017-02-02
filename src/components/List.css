@@ -32,6 +32,10 @@
   background-color: #DEE4E9;
   cursor:default;
 }
+.disabled {
+  cursor: default !important;
+  background-color: transparent !important;
+}
 .list li:hover {
   background-color: #DEE4E9;
   cursor: pointer;
