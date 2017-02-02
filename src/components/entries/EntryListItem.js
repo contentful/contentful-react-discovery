@@ -14,7 +14,7 @@ export default function EntryListItem ({item, location}) {
   return (
     <li className={getClassIfCurrentlySelected()}>
       <Link to={{pathname: `/entries/by-content-type/${contentType.sys.id}/${item.sys.id}`, query: location.query}}>
-      {item.fields[contentType.displayField] || 'No Content'}
+        {item.fields[contentType.displayField] || 'No Content'}
       </Link>
     </li>
   )

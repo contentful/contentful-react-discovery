@@ -13,7 +13,7 @@ export default class Requests extends React.Component {
     const request = (requestId && requestId <= requests.length - 1) ? requests[requestId] : undefined
 
     if (request) {
-      content = <Request request={request} location={this.props.location}/>
+      content = <Request request={request} location={this.props.location} />
     }
     return <TwoPanelList
       items={[{items: this.props.requests, TitleView: listTitle, ListView: RequestListItem}]}

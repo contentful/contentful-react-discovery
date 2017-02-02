@@ -17,7 +17,7 @@ class ToggleButton extends React.Component {
   }
   componentWillReceiveProps (nextProps) {
     if (this.props.checked !== nextProps.checked || this.props.disabled !== nextProps.disabled) {
-      this.setState({isChecked: nextProps.checked, disabled: nextProps.disabled })
+      this.setState({isChecked: nextProps.checked, disabled: nextProps.disabled})
     }
   }
   onChange (e) {
@@ -47,8 +47,8 @@ class ToggleButton extends React.Component {
               checked={this.state.isChecked}
               onChange={this.onChange} />
             <label styleName='onoffswitch-label' htmlFor={this.toggleId}>
-              <span styleName='onoffswitch-inner'></span>
-              <span styleName='onoffswitch-switch'></span>
+              <span styleName='onoffswitch-inner' />
+              <span styleName='onoffswitch-switch' />
             </label>
           </div>
         </li>

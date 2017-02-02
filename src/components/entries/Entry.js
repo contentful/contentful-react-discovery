@@ -13,7 +13,7 @@ function Entry ({entry, location}) {
   const displayField = fields.find({id: contentType.get('displayField')}).value
   const remainingFields = fieldsWithoutDisplay.map((field) => {
     const id = field.get('id')
-    return <Field key={id} definition={field.value} content={entry.fields[id]} location={location}/>
+    return <Field key={id} definition={field.value} content={entry.fields[id]} location={location} />
   })
   return (
     <div>
@@ -24,7 +24,7 @@ function Entry ({entry, location}) {
           location.query.space_id + '/entries/' +
           entry.sys.id}>Edit in Contentful Web App</a>
       </section>
-      <Field key={displayField.id} definition={displayField} content={entry.fields[displayField.id]} styleName='field' location={location}/>
+      <Field key={displayField.id} definition={displayField} content={entry.fields[displayField.id]} styleName='field' location={location} />
       {remainingFields}
     </div>
   )

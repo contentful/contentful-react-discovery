@@ -23,7 +23,7 @@ export default createClass({
     if (this.state.phase === 'loading') {
       return <p>Loading your Asset...</p>
     } else {
-      return <Asset asset={this.state.asset}/>
+      return <Asset asset={this.state.asset} />
     }
   }
 })
