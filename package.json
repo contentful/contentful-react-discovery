@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --host=0.0.0.0 --port=9020 --inline --hot",
     "clean": "rimraf dist && rimraf gh-pages",
-    "lint": "standard",
+    "lint": "standard src/**/*.js",
     "build": "npm run clean && NODE_ENV=production BASE_PATH=discovery-app-react webpack -p",
     "publish": "npm run build && ./bin/publish.sh"
   },
