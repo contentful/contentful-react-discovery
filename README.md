@@ -16,7 +16,7 @@ git clone https://github.com/contentful/discovery-app-react
 Install dependencies
 
 ```shell
-npm install
+yarn || npm install
 ```
 Start the project
 
@@ -37,7 +37,7 @@ git clone https://github.com/contentful/discovery-app-react
 Build the docker image
 
 ```shell
-docker build -t discovery-app .  
+docker build -t discovery-app .
 ```
 
 Run the docker image
