@@ -6,15 +6,28 @@ import Field from './Field'
 
 function Entry ({entry, location}) {
   const contentType = scour(entry.sys.contentType)
-  const fields = contentType.go('fields')
-  const fieldsWithoutDisplay = fields.filter((field) => {
-    return field.get('id') !== contentType.get('displayField')
+  const displayFieldId = contentType.get('displayField')
+  const fieldsData = contentType.go('fields')
+  const fieldsWithoutDisplay = fieldsData.filter((field) => {
+    return field.get('id') !== displayFieldId
   })
-  const displayField = fields.find({id: contentType.get('displayField')}).value
-  const remainingFields = fieldsWithoutDisplay.map((field) => {
+  const fields = []
+
+  if (displayFieldId) {
+    const displayField = fieldsData.find({id: contentType.get('displayField')}).value
+
+    fields.push(
+      <Field key={displayFieldId} definition={displayField} content={entry.fields[displayFieldId]} styleName='field' location={location} />
+    )
+  }
+
+  fieldsWithoutDisplay.forEach((field) => {
     const id = field.get('id')
-    return <Field key={id} definition={field.value} content={entry.fields[id]} location={location}/>
+    fields.push(
+      <Field key={id} definition={field.value} content={entry.fields[id]} location={location} />
+    )
   })
+
   return (
     <div>
       <section styleName='edit-section'>
@@ -24,8 +37,7 @@ function Entry ({entry, location}) {
           location.query.space_id + '/entries/' +
           entry.sys.id}>Edit in Contentful Web App</a>
       </section>
-      <Field key={displayField.id} definition={displayField} content={entry.fields[displayField.id]} styleName='field' location={location}/>
-      {remainingFields}
+      {fields}
     </div>
   )
 }
