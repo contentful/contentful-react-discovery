@@ -11,7 +11,7 @@ class NotificationLink extends React.Component {
           <span styleName='badge'>{this.props.count}</span>
         </div>
         <Link to={this.props.to}>
-        {this.props.label}
+          {this.props.label}
         </Link>
       </div>
     )

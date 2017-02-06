@@ -8,27 +8,39 @@ You can try out the app at https://discovery.contentful.com/ or you can check ou
 
 # Running discovery-app locally
 
-clone the project and `cd` to the directory
+## Prepare
+
+clone the app and `cd` to the directory
 
 ```shell
 git clone https://github.com/contentful/discovery-app-react
 ```
-Install dependencies
+
+## Install dependencies via npm
 
 ```shell
 npm install
 ```
-Start the project
+
+## Install dependencies via yarn
+
+```shell
+yarn
+```
+
+## Start the app
 
 ```shell
 npm start
 ```
 
-Open `http://0.0.0.0:9020` in your browser to see the app
+Open `http://0.0.0.0:9020` in your browser to see the app.
+
+Yarn users alternatively can use `yarn start` to start the app.
 
 # Using Docker
 
-clone the project and `cd` to the directory
+clone the app and `cd` to the directory
 
 ```shell
 git clone https://github.com/contentful/discovery-app-react
@@ -37,7 +49,7 @@ git clone https://github.com/contentful/discovery-app-react
 Build the docker image
 
 ```shell
-docker build -t discovery-app .  
+docker build -t discovery-app .
 ```
 
 Run the docker image

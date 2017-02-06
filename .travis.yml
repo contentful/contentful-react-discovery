@@ -1,8 +1,9 @@
 language: node_js
 node_js:
   - "6.2"
-script: 
-  - npm install
+cache: yarn
+script:
+  - npm run lint
   - npm run build
   - mkdir discovery_app
   - cp *.svg *.png *.css dist/*.js discovery_app
