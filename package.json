@@ -33,7 +33,7 @@
     "flux": "^2.1.1",
     "history": "^2.0.1",
     "localforage": "^1.4.0",
-    "marked": "^0.3.5",
+    "marked": "^0.3.6",
     "pretty-bytes": "^3.0.1",
     "react": "^15.0.0-rc.1",
     "react-ace": "^3.4.1",

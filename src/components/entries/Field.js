@@ -56,10 +56,13 @@ function renderContent (content, definition, location) {
 
 function renderMarkdown (content) {
   return {
-    __html: marked(content, {sanitize: true})
+    __html: marked(removeIvalidDataURL(content), {sanitize: true})
   }
 }
-
+function removeIvalidDataURL (content) {
+  let regex = /data:\w+;base64\S*/gm 
+  return content.replace(regex, '#')
+}
 function renderEntryLink (content, location) {
   return <EntryLinkContainer entryLink={content} location={location} />
 }
