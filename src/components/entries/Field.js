@@ -60,7 +60,7 @@ function renderMarkdown (content) {
   }
 }
 function removeIvalidDataURL (content) {
-  let regex = /data:\w+;base64\S*/gm 
+  let regex = /data:\S+;base64\S*/gm 
   return content.replace(regex, '#')
 }
 function renderEntryLink (content, location) {
