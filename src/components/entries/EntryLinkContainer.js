@@ -30,7 +30,7 @@ export default createClass({
       const displayField = this.props.entryLink.fields[this.state.contentType.displayField]
       const entryLinkSys = this.props.entryLink.sys
       return <Link to={{pathname: `/entries/by-content-type/${entryLinkSys.contentType.sys.id}/${entryLinkSys.id}`, query: this.props.location.query}}>
-        {displayField}
+        {displayField || "untitled"}
       </Link>
     }
   }
