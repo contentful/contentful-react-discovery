@@ -1,6 +1,17 @@
 {
   "presets": [
-    "es2015",
+    ["env", {
+      "targets": {
+        "browsers": [
+          "last 2 versions",
+          "not ie < 13",
+          "not android < 50"
+        ]
+      }
+    }],
     "react"
+  ],
+  "plugins": [
+    "lodash"
   ]
 }
