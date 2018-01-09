@@ -1,6 +1,7 @@
 import React, {createClass} from 'react'
 import {getClient} from '../../services/contentfulClient'
 import Asset from './Asset'
+import LoadingIndicator from '../LoadingIndicator'
 
 export default createClass({
   getInitialState () {
@@ -21,7 +22,7 @@ export default createClass({
 
   render () {
     if (this.state.phase === 'loading') {
-      return <p>Loading your Asset...</p>
+      return <LoadingIndicator text='Loading your Asset...' />
     } else {
       return <Asset asset={this.state.asset} />
     }

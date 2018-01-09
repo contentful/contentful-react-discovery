@@ -5,6 +5,7 @@ import Search from './Search'
 import styles from './AssetsContainer.css'
 import CSSModules from 'react-css-modules'
 import update from 'react-addons-update'
+import LoadingIndicator from '../LoadingIndicator'
 
 class AssetsContainer extends React.Component {
   constructor () {
@@ -44,9 +45,7 @@ class AssetsContainer extends React.Component {
 
   render () {
     if (this.state.phase === 'loading') {
-      return <div>
-        <p>Loading your Assets...</p>
-      </div>
+      return <LoadingIndicator text='Loading your Assets...' />
     } else if (this.state.assets.length === 0) {
       return <div>
         <p>No assets are available.</p>

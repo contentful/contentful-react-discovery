@@ -1,0 +1,46 @@
+.wrapper {
+  padding: 10vh 0;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+}
+
+.text {
+  margin: 10vh 0 0 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.spinner {
+  display: block;
+  margin: 0 auto;
+  animation-name: rotate;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-iteration-count: infinite;
+  transform-origin: center center;
+  transform-style: preserve-3d;
+}
+
+@keyframes :local(rotate) {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes :local(fadeIn) {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

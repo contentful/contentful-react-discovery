@@ -1,6 +1,7 @@
 import React, {createClass, PropTypes} from 'react'
 import {Link} from 'react-router'
 import {findContentType} from '../../services/contentTypeStore'
+import LoadingIndicator from '../LoadingIndicator'
 
 export default createClass({
   propTypes: {
@@ -25,7 +26,7 @@ export default createClass({
 
   render () {
     if (this.state.phase === 'loading') {
-      return <p>Loading Link...</p>
+      return <LoadingIndicator text='Loading your Link...' />
     } else {
       const displayField = this.props.entryLink.fields[this.state.contentType.displayField]
       const entryLinkSys = this.props.entryLink.sys
